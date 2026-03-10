@@ -3,9 +3,9 @@ import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
 
 const pageVariants = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
+  exit: { opacity: 0, transition: { duration: 0.3 } },
 }
 
 const courseHighlights = [
@@ -46,29 +46,27 @@ export default function Courses() {
           <img src="/hero-bg.png" alt="" aria-hidden="true" />
         </div>
         <div className="hero-overlay-gradient"></div>
-        <div className="hero-particles">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="particle"></div>
-          ))}
-        </div>
         <motion.div
           className="hero-content"
+          style={{ gridTemplateColumns: '1fr', textAlign: 'center', justifyItems: 'center' }}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="hero-badge">✦ AICE Programs</div>
-          <h1 className="hero-title">
-            Our <span className="gradient-text">Courses</span>
-          </h1>
-          <p className="hero-subtitle">
-            Practical AI education designed to deliver real-world results.
-          </p>
+          <div className="hero-text" style={{ textAlign: 'center' }}>
+            <div className="hero-badge">✦ AICE Programs</div>
+            <h1 className="hero-title" style={{ fontStyle: 'italic' }}>
+              Our Courses
+            </h1>
+            <p className="hero-subtitle" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+              Practical AI education designed to deliver real-world results.
+            </p>
+          </div>
         </motion.div>
       </section>
 
       {/* ===== FEATURED COURSE ===== */}
-      <section className="section">
+      <section className="section" style={{ background: 'var(--bg-white)' }}>
         <div className="container">
           <ScrollReveal>
             <div className="text-center" style={{ marginBottom: '60px' }}>
@@ -108,7 +106,7 @@ export default function Courses() {
                         </div>
                       ))}
                     </div>
-                    <a href="#pre-enroll" className="btn btn-primary btn-glow" style={{ width: 'fit-content' }}>
+                    <a href="#pre-enroll" className="btn btn-primary" style={{ width: 'fit-content' }}>
                       Pre-Enroll Now →
                     </a>
                   </div>
@@ -118,7 +116,7 @@ export default function Courses() {
           </ScrollReveal>
 
           {/* Course Modules */}
-          <div style={{ marginTop: '80px' }}>
+          <div style={{ marginTop: '100px' }}>
             <ScrollReveal>
               <div className="text-center">
                 <span className="section-label">Course Structure</span>
@@ -129,11 +127,11 @@ export default function Courses() {
               </div>
             </ScrollReveal>
 
-            <div className="features-grid" style={{ marginTop: '40px' }}>
+            <div className="feature-detail-grid" style={{ marginTop: '50px' }}>
               {modules.map((m, i) => (
                 <ScrollReveal key={i} delay={i * 0.08}>
-                  <div className="glass-card feature-card">
-                    <div className="feature-icon">{m.icon}</div>
+                  <div className="feature-detail-card">
+                    <div className="feature-detail-card-icon">{m.icon}</div>
                     <h3>{m.title}</h3>
                     <p>{m.desc}</p>
                   </div>
@@ -143,7 +141,7 @@ export default function Courses() {
           </div>
 
           {/* Certification */}
-          <div style={{ marginTop: '80px' }}>
+          <div style={{ marginTop: '100px' }}>
             <ScrollReveal>
               <div className="cert-content">
                 <div className="cert-visual">
@@ -154,7 +152,7 @@ export default function Courses() {
                 <div className="cert-details">
                   <h3>AICE Certification</h3>
                   <p>
-                    Participants who successfully complete the program earn the AICE Certificate — 
+                    Participants who successfully complete the program earn the AICE Certificate —
                     signaling that you understand how to apply AI intelligently and responsibly.
                   </p>
                   <div className="cert-list">
@@ -171,7 +169,7 @@ export default function Courses() {
       </section>
 
       {/* ===== PRE-ENROLL ===== */}
-      <section className="section" id="pre-enroll">
+      <section className="section" id="pre-enroll" style={{ background: 'var(--bg-page)' }}>
         <div className="container">
           <ScrollReveal>
             <div className="pre-enroll">
@@ -210,7 +208,7 @@ export default function Courses() {
       </section>
 
       {/* ===== MORE COURSES ===== */}
-      <section className="section">
+      <section className="section" style={{ background: 'var(--bg-white)' }}>
         <div className="container">
           <ScrollReveal>
             <div className="more-courses">
