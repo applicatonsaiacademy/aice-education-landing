@@ -1,19 +1,81 @@
-# React + Vite
+# AICE Education Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, premium landing page for **AICE (AI Centre of Excellence)** — an education platform offering cutting-edge AI & technology courses.
 
-Currently, two official plugins are available:
+Built with React + Vite, featuring a sleek dark-themed design inspired by Jeton.com with smooth animations and a responsive layout.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 🎨 **Premium Dark UI** — Glassmorphism, gradients, and modern typography
+- 🚀 **Smooth Animations** — Powered by Framer Motion with scroll-reveal effects
+- 📱 **Fully Responsive** — Optimized for desktop, tablet, and mobile
+- 📄 **Multi-Page** — Home, Courses, Contact, and Newsletter pages
+- ⚡ **Fast** — Built on Vite for lightning-fast dev and build times
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+| Technology | Purpose |
+|---|---|
+| React 19 | UI framework |
+| Vite 5 | Build tool & dev server |
+| React Router 7 | Client-side routing |
+| Framer Motion | Animations |
+| Vanilla CSS | Styling |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📁 Project Structure
 
+```
+src/
+├── components/
+│   ├── Navbar.jsx        # Navigation bar
+│   ├── Footer.jsx        # Footer section
+│   └── ScrollReveal.jsx  # Scroll animation wrapper
+├── pages/
+│   ├── Home.jsx          # Landing page
+│   ├── Courses.jsx       # Course listings
+│   ├── Contact.jsx       # Contact form
+│   └── Newsletter.jsx    # Newsletter signup
+├── App.jsx               # App routes & layout
+├── main.jsx              # Entry point
+└── index.css             # Global styles
+```
 
-BY PP
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18+)
+- npm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/applicatonsaiacademy/aice-education-landing.git
+
+# Navigate to the project
+cd aice-education-landing
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+```
+
+The app will be running at `http://localhost:5173`.
+
+### Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## 👤 Author
+
+**Palani Prashanth (PP)**
+
+---
+
+> Built with ❤️ for AICE — AI Centre of Excellence
