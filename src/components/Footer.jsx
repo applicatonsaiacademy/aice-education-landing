@@ -25,6 +25,7 @@ export default function Footer() {
             <h4>Discover</h4>
             <Link to="/courses">AI for Business Leaders</Link>
             <Link to="/courses">Certification</Link>
+            <Link to="/founders">Meet the Founders</Link>
             <Link to="/newsletter">Newsletter</Link>
           </div>
 

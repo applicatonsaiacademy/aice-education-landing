@@ -12,10 +12,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => {
-    setMobileOpen(false)
-  }, [location])
-
   const isActive = (path) => location.pathname === path
 
   return (
@@ -24,7 +20,8 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <Link to="/" className="nav-logo">
-            AICE<span className="dot">.</span>Education
+            <img src="/logo.png" alt="AICE Logo" className="nav-logo-img" />
+            <span>AICE<span className="dot">.</span>Education</span>
           </Link>
 
           <div
@@ -42,6 +39,7 @@ export default function Navbar() {
             <Link to="/courses" className={`nav-link ${isActive('/courses') ? 'active' : ''}`}>Courses</Link>
             <Link to="/newsletter" className={`nav-link ${isActive('/newsletter') ? 'active' : ''}`}>Newsletter</Link>
             <Link to="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>Contact</Link>
+            <Link to="/founders" className={`nav-link ${isActive('/founders') ? 'active' : ''}`}>Founders</Link>
             <Link to="/courses" className="btn btn-primary nav-cta">Get Started</Link>
           </div>
 
@@ -65,6 +63,9 @@ export default function Navbar() {
         </Link>
         <Link to="/newsletter" className={`bottom-nav-link ${isActive('/newsletter') ? 'active' : ''}`}>
           Newsletter
+        </Link>
+        <Link to="/founders" className={`bottom-nav-link ${isActive('/founders') ? 'active' : ''}`}>
+          Founders
         </Link>
         <Link to="/contact" className={`bottom-nav-link ${isActive('/contact') ? 'active' : ''}`}>
           Contact

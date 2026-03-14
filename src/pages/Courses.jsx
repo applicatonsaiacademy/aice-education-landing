@@ -42,10 +42,6 @@ export default function Courses() {
     <motion.div className="page-wrapper" variants={pageVariants} initial="initial" animate="animate" exit="exit">
       {/* ===== HERO ===== */}
       <section className="hero" style={{ minHeight: '70vh' }}>
-        <div className="hero-bg">
-          <img src="/hero-bg.png" alt="" aria-hidden="true" />
-        </div>
-        <div className="hero-overlay-gradient"></div>
         <motion.div
           className="hero-content"
           style={{ gridTemplateColumns: '1fr', textAlign: 'center', justifyItems: 'center' }}
