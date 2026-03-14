@@ -2,14 +2,15 @@
 
 A modern, premium landing page for **AICE (AI Centre of Excellence)** — an education platform offering cutting-edge AI & technology courses.
 
-Built with React + Vite, featuring a sleek dark-themed design inspired by Jeton.com with smooth animations and a responsive layout.
+Built with React + Vite, featuring a sleek dark-themed design with smooth motion, storytelling sections, and a responsive layout.
 
 ## ✨ Features
 
 - 🎨 **Premium Dark UI** — Glassmorphism, gradients, and modern typography
-- 🚀 **Smooth Animations** — Powered by Framer Motion with scroll-reveal effects
+- 🚀 **Smooth Animations** — Framer Motion reveal/stagger effects and animated hero text
 - 📱 **Fully Responsive** — Optimized for desktop, tablet, and mobile
-- 📄 **Multi-Page** — Home, Courses, Contact, and Newsletter pages
+- 📄 **Multi-Page** — Home, Courses, Newsletter, and Founders spotlight
+- 🧑‍💻 **AI Innovators & Tools** — Highlight cards for innovators, AI tools, and program benefits
 - ⚡ **Fast** — Built on Vite for lightning-fast dev and build times
 
 ## 🛠️ Tech Stack
@@ -27,14 +28,18 @@ Built with React + Vite, featuring a sleek dark-themed design inspired by Jeton.
 ```
 src/
 ├── components/
-│   ├── Navbar.jsx        # Navigation bar
-│   ├── Footer.jsx        # Footer section
-│   └── ScrollReveal.jsx  # Scroll animation wrapper
+│   ├── Navbar.jsx           # Navigation bar
+│   ├── Footer.jsx           # Footer section
+│   ├── ScrollReveal.jsx     # Scroll animation wrapper
+│   ├── ScrollBackground.jsx # Ambient gradient scroll background
+│   ├── AnimatedText.jsx     # Typewriter-style hero text
+│   ├── AITools.jsx          # AI tools grid section
+│   └── Innovators.jsx       # Innovators highlight cards
 ├── pages/
-│   ├── Home.jsx          # Landing page
-│   ├── Courses.jsx       # Course listings
-│   ├── Contact.jsx       # Contact form
-│   └── Newsletter.jsx    # Newsletter signup
+│   ├── Home.jsx             # Landing page hero & highlights
+│   ├── Courses.jsx          # Course listings & benefits
+│   ├── Newsletter.jsx       # Newsletter signup CTA
+│   └── Founders.jsx         # Founders spotlight section
 ├── App.jsx               # App routes & layout
 ├── main.jsx              # Entry point
 └── index.css             # Global styles
@@ -70,6 +75,9 @@ The app will be running at `http://localhost:5173`.
 ```bash
 npm run build
 npm run preview
+
+# default dev server
+# http://localhost:5173
 ```
 
 ## 👤 Author
