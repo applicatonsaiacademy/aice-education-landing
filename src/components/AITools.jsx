@@ -23,6 +23,7 @@ function ToolLogo({ name, logo }) {
           alt=""
           className="tool-logo-img"
           loading="lazy"
+          style={name === 'ChatGPT' ? { filter: 'invert(1) brightness(2)' } : {}}
           onError={() => setFailed(true)}
         />
       )}
