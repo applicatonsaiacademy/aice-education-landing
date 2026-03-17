@@ -30,38 +30,36 @@ function ToolLogo({ name, logo }) {
 }
 
 const tools = [
-  { name: 'Make', category: 'No-code workflow builder', logo: 'https://cdn.simpleicons.org/make' },
-  { name: 'Zapier AI', category: 'Automation platform', logo: 'https://cdn.simpleicons.org/zapier' },
-  { name: 'n8n', category: 'Workflow automation', logo: 'https://cdn.simpleicons.org/n8n' },
-  { name: 'Bardeen AI', category: 'Browser automation', logo: 'https://img.logo.dev/bardeen.ai?token=pk_9tTeb9l3Re26R16m6yWe9A' },
-  { name: 'AgentGPT', category: 'Autonomous AI agents', logo: 'https://img.logo.dev/agentgpt.reworkd.ai?token=pk_9tTeb9l3Re26R16m6yWe9A' },
+  // Foundational & Productivity
+  { name: 'ChatGPT Enterprise', category: 'Foundational AI', logo: 'https://icon.horse/icon/chatgpt.com' },
+  { name: 'Google Gemini', category: 'Foundational AI', logo: 'https://icon.horse/icon/gemini.google.com' },
+  { name: 'Microsoft 365 Copilot', category: 'Productivity AI', logo: 'https://icon.horse/icon/microsoft.com' },
+  { name: 'Claude 4', category: 'Foundational AI', logo: 'https://icon.horse/icon/claude.ai' },
 
-  { name: 'ChatGPT', category: 'Conversational AI', logo: 'https://cdn.simpleicons.org/openai' },
-  { name: 'Claude', category: 'AI writing and reasoning', logo: 'https://cdn.simpleicons.org/anthropic' },
-  { name: 'Perplexity AI', category: 'AI search engine', logo: 'https://cdn.simpleicons.org/perplexity' },
-  { name: 'Jasper AI', category: 'AI content creator', logo: 'https://cdn.simpleicons.org/jasper' },
-  { name: 'Notion AI', category: 'Connected workspace AI', logo: 'https://cdn.simpleicons.org/notion' },
+  // Automation & Agents
+  { name: 'Zapier Central', category: 'Automation AI', logo: 'https://icon.horse/icon/zapier.com' },
+  { name: 'Lindy.ai', category: 'AI Agents', logo: 'https://icon.horse/icon/www.lindy.ai' },
+  { name: 'CrewAI', category: 'AI Agents', logo: 'https://icon.horse/icon/www.crewai.com' },
 
-  { name: 'Midjourney', category: 'Text to images/videos', logo: 'https://cdn.simpleicons.org/midjourney' },
-  { name: 'Leonardo AI', category: 'Image generation', logo: 'https://img.logo.dev/leonardo.ai?token=pk_9tTeb9l3Re26R16m6yWe9A' },
-  { name: 'Adobe Firefly', category: 'Creative generative AI', logo: 'https://cdn.simpleicons.org/adobe' },
-  { name: 'Canva AI', category: 'AI design tools', logo: 'https://cdn.simpleicons.org/canva' },
-  { name: 'Magnific AI', category: 'AI image upscaler', logo: 'https://img.logo.dev/magnific.ai?token=pk_9tTeb9l3Re26R16m6yWe9A' },
+  // Sales & Marketing
+  { name: 'HubSpot AI CRM', category: 'Sales & Marketing', logo: 'https://icon.horse/icon/www.hubspot.com' },
+  { name: 'Jasper AI', category: 'Marketing Content', logo: 'https://icon.horse/icon/www.jasper.ai' },
+  { name: 'Clay', category: 'Sales Outreach', logo: 'https://icon.horse/icon/www.clay.com' },
+  { name: 'Gong', category: 'Revenue Intelligence', logo: 'https://icon.horse/icon/www.gong.io' },
 
-  { name: 'Runway ML', category: 'AI video editor', logo: 'https://img.logo.dev/runwayml.com?token=pk_9tTeb9l3Re26R16m6yWe9A' },
-  { name: 'Pika AI', category: 'Idea-to-video platform', logo: 'https://img.logo.dev/pika.art?token=pk_9tTeb9l3Re26R16m6yWe9A' },
-  { name: 'Synthesia', category: 'AI video generator', logo: 'https://img.logo.dev/synthesia.io?token=pk_9tTeb9l3Re26R16m6yWe9A' },
-  { name: 'Luma AI', category: 'Text to video', logo: 'https://img.logo.dev/lumalabs.ai?token=pk_9tTeb9l3Re26R16m6yWe9A' },
-  { name: 'Descript', category: 'Pro video editor', logo: 'https://cdn.simpleicons.org/descript' },
+  // Design & Multimedia
+  { name: 'Canva Magic Studio', category: 'Design AI', logo: 'https://icon.horse/icon/www.canva.com' },
+  { name: 'ElevenLabs', category: 'Voice AI', logo: 'https://icon.horse/icon/elevenlabs.io' },
+  { name: 'Adobe Firefly', category: 'Design AI', logo: 'https://icon.horse/icon/firefly.adobe.com' },
 
-  { name: 'Durable AI', category: 'AI site builder', logo: 'https://img.logo.dev/durable.co?token=pk_9tTeb9l3Re26R16m6yWe9A' },
-  { name: 'Framer AI', category: 'AI site design', logo: 'https://cdn.simpleicons.org/framer' },
-  { name: '10Web AI Builder', category: 'AI site builder', logo: 'https://img.logo.dev/10web.io?token=pk_9tTeb9l3Re26R16m6yWe9A' },
-  { name: 'Builder.io', category: 'AI site builder', logo: 'https://cdn.simpleicons.org/builderio' },
+  // Operations & Knowledge Management
+  { name: 'Motion', category: 'Project Management', logo: 'https://icon.horse/icon/www.usemotion.com' },
+  { name: 'Glean', category: 'Knowledge Management', logo: 'https://icon.horse/icon/www.glean.com' },
+  { name: 'Perplexity Pages', category: 'AI Research', logo: 'https://icon.horse/icon/www.perplexity.ai' },
+  { name: 'Devin AI', category: 'AI Software Engineer', logo: 'https://icon.horse/icon/www.cognition.ai' },
+  { name: 'Salesforce Agentforce', category: 'CRM AI Agents', logo: 'https://icon.horse/icon/www.salesforce.com' },
+  { name: 'Julius AI', category: 'Data Analysis AI', logo: 'https://icon.horse/icon/julius.ai' },
 
-  { name: 'ElevenLabs', category: 'AI voice generator', logo: 'https://img.logo.dev/elevenlabs.io?token=pk_9tTeb9l3Re26R16m6yWe9A' },
-  { name: 'Suno AI', category: 'AI music generator', logo: 'https://img.logo.dev/suno.com?token=pk_9tTeb9l3Re26R16m6yWe9A' },
-  { name: 'PlayHT', category: 'AI voice generator', logo: 'https://img.logo.dev/play.ht?token=pk_9tTeb9l3Re26R16m6yWe9A' },
   { name: '& a lot more!', category: '', isSpecial: true },
 ]
 
