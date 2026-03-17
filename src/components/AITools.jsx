@@ -31,7 +31,7 @@ function ToolLogo({ name, logo }) {
 
 const tools = [
   // Foundational & Productivity
-  { name: 'ChatGPT Enterprise', category: 'Foundational AI', logo: 'https://icon.horse/icon/chatgpt.com' },
+  { name: 'ChatGPT', category: 'Foundational AI', logo: 'https://cdn.simpleicons.org/openai' },
   { name: 'Google Gemini', category: 'Foundational AI', logo: 'https://icon.horse/icon/gemini.google.com' },
   { name: 'Microsoft 365 Copilot', category: 'Productivity AI', logo: 'https://icon.horse/icon/microsoft.com' },
   { name: 'Claude 4', category: 'Foundational AI', logo: 'https://icon.horse/icon/claude.ai' },
@@ -45,7 +45,7 @@ const tools = [
   { name: 'HubSpot AI CRM', category: 'Sales & Marketing', logo: 'https://icon.horse/icon/www.hubspot.com' },
   { name: 'Jasper AI', category: 'Marketing Content', logo: 'https://icon.horse/icon/www.jasper.ai' },
   { name: 'Clay', category: 'Sales Outreach', logo: 'https://icon.horse/icon/www.clay.com' },
-  { name: 'Gong', category: 'Revenue Intelligence', logo: 'https://icon.horse/icon/www.gong.io' },
+  { name: 'Synthesia', category: 'AI Video', logo: 'https://icon.horse/icon/www.synthesia.io' },
 
   // Design & Multimedia
   { name: 'Canva Magic Studio', category: 'Design AI', logo: 'https://icon.horse/icon/www.canva.com' },
@@ -56,7 +56,7 @@ const tools = [
   { name: 'Motion', category: 'Project Management', logo: 'https://icon.horse/icon/www.usemotion.com' },
   { name: 'Glean', category: 'Knowledge Management', logo: 'https://icon.horse/icon/www.glean.com' },
   { name: 'Perplexity Pages', category: 'AI Research', logo: 'https://icon.horse/icon/www.perplexity.ai' },
-  { name: 'Devin AI', category: 'AI Software Engineer', logo: 'https://icon.horse/icon/www.cognition.ai' },
+  { name: 'Runway ML', category: 'AI Video Editor', logo: 'https://icon.horse/icon/runwayml.com' },
   { name: 'Salesforce Agentforce', category: 'CRM AI Agents', logo: 'https://icon.horse/icon/www.salesforce.com' },
   { name: 'Julius AI', category: 'Data Analysis AI', logo: 'https://icon.horse/icon/julius.ai' },
 
