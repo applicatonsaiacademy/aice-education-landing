@@ -31,7 +31,7 @@ function ToolLogo({ name, logo }) {
 
 const tools = [
   // Foundational & Productivity
-  { name: 'ChatGPT', category: 'Foundational AI', logo: 'https://cdn.simpleicons.org/openai' },
+  { name: 'ChatGPT Enterprise', category: 'Foundational AI', logo: 'https://cdn.simpleicons.org/openai' },
   { name: 'Google Gemini', category: 'Foundational AI', logo: 'https://icon.horse/icon/gemini.google.com' },
   { name: 'Microsoft 365 Copilot', category: 'Productivity AI', logo: 'https://icon.horse/icon/microsoft.com' },
   { name: 'Claude 4', category: 'Foundational AI', logo: 'https://icon.horse/icon/claude.ai' },
