@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
+import ChatGptLogo from '../assets/chatgpt-logo.png'
 
 function ToolLogo({ name, logo }) {
   const [failed, setFailed] = useState(false)
@@ -31,7 +32,7 @@ function ToolLogo({ name, logo }) {
 
 const tools = [
   // Foundational & Productivity
-  { name: 'ChatGPT Enterprise', category: 'Foundational AI', logo: 'https://cdn.simpleicons.org/openai' },
+  { name: 'ChatGPT', category: 'Foundational AI', logo: ChatGptLogo },
   { name: 'Google Gemini', category: 'Foundational AI', logo: 'https://icon.horse/icon/gemini.google.com' },
   { name: 'Microsoft 365 Copilot', category: 'Productivity AI', logo: 'https://icon.horse/icon/microsoft.com' },
   { name: 'Claude 4', category: 'Foundational AI', logo: 'https://icon.horse/icon/claude.ai' },
