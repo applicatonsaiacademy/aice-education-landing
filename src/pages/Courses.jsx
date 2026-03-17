@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
+import { savePreEnroll } from '../lib/forms'
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -28,13 +29,21 @@ const modules = [
 export default function Courses() {
   const [email, setEmail] = useState('')
   const [enrolled, setEnrolled] = useState(false)
+  const [status, setStatus] = useState('idle') // idle | loading | error
 
-  const handlePreEnroll = (e) => {
+  const handlePreEnroll = async (e) => {
     e.preventDefault()
     if (email.trim() && email.includes('@')) {
-      console.log('Pre-enrollment email:', email)
-      setEnrolled(true)
-      setEmail('')
+      setStatus('loading')
+      try {
+        await savePreEnroll({ email })
+        setEnrolled(true)
+        setEmail('')
+        setStatus('idle')
+      } catch (err) {
+        console.error(err)
+        setStatus('error')
+      }
     }
   }
 
@@ -186,8 +195,11 @@ export default function Courses() {
                         required
                       />
                       <button type="submit" className="btn btn-primary">
-                        Pre-Enroll →
+                        {status === 'loading' ? 'Saving…' : 'Pre-Enroll →'}
                       </button>
+                      {status === 'error' && (
+                        <p style={{ color: '#d04530', marginTop: '8px' }}>Could not save. Please try again.</p>
+                      )}
                     </form>
                   </>
                 ) : (

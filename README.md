@@ -9,8 +9,9 @@ Built with React + Vite, featuring a sleek dark-themed design with smooth motion
 - 🎨 **Premium Dark UI** — Glassmorphism, gradients, and modern typography
 - 🚀 **Smooth Animations** — Framer Motion reveal/stagger effects and animated hero text
 - 📱 **Fully Responsive** — Optimized for desktop, tablet, and mobile
-- 📄 **Multi-Page** — Home, Courses, Newsletter, and Founders spotlight
+- 📄 **Multi-Page** — Home, Courses, Newsletter, Contact, Founders spotlight, and an Admin Dashboard
 - 🧑‍💻 **AI Innovators & Tools** — Highlight cards for innovators, AI tools, and program benefits
+- 🔒 **Secure Admin Area** — Firebase Authentication for managing leads and newsletter signups
 - ⚡ **Fast** — Built on Vite for lightning-fast dev and build times
 
 ## 🛠️ Tech Stack
@@ -20,6 +21,7 @@ Built with React + Vite, featuring a sleek dark-themed design with smooth motion
 | React 19 | UI framework |
 | Vite 5 | Build tool & dev server |
 | React Router 7 | Client-side routing |
+| Firebase | Authentication & Firestore Database |
 | Framer Motion | Animations |
 | Vanilla CSS | Styling |
 
@@ -39,7 +41,12 @@ src/
 │   ├── Home.jsx             # Landing page hero & highlights
 │   ├── Courses.jsx          # Course listings & benefits
 │   ├── Newsletter.jsx       # Newsletter signup CTA
-│   └── Founders.jsx         # Founders spotlight section
+│   ├── Contact.jsx          # Contact support page
+│   ├── Founders.jsx         # Founders spotlight section
+│   └── Admin.jsx            # Secure Admin Dashboard for leads
+├── lib/
+│   ├── firebase.js          # Firebase configuration & initialization
+│   └── forms.js             # Form submission and Firestore queries
 ├── App.jsx               # App routes & layout
 ├── main.jsx              # Entry point
 └── index.css             # Global styles

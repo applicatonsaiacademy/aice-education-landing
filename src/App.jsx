@@ -7,6 +7,7 @@ import Courses from './pages/Courses'
 import Newsletter from './pages/Newsletter'
 import Contact from './pages/Contact'
 import Founders from './pages/Founders'
+import Admin from './pages/Admin'
 
 function App() {
   const location = useLocation()
@@ -14,7 +15,7 @@ function App() {
   return (
     <>
       <div className="app-content">
-        <Navbar />
+        {location.pathname !== '/admin' && <Navbar />}
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
@@ -22,9 +23,10 @@ function App() {
             <Route path="/newsletter" element={<Newsletter />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/founders" element={<Founders />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </AnimatePresence>
-        <Footer />
+        {location.pathname !== '/admin' && <Footer />}
       </div>
     </>
   )

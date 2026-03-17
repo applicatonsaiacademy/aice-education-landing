@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
+import { saveNewsletter } from '../lib/forms'
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -44,15 +45,21 @@ const blogPosts = [
 
 export default function Newsletter() {
   const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
+  const [status, setStatus] = useState('idle') // idle | loading | success | error
   const [expandedBlogId, setExpandedBlogId] = useState(null)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (email.trim() && email.includes('@')) {
-      console.log('Newsletter signup:', email)
-      setSubscribed(true)
-      setEmail('')
+      setStatus('loading')
+      try {
+        await saveNewsletter({ email })
+        setStatus('success')
+        setEmail('')
+      } catch (err) {
+        console.error(err)
+        setStatus('error')
+      }
     }
   }
 
@@ -75,7 +82,7 @@ export default function Newsletter() {
             delivered to your inbox.
           </p>
 
-          {!subscribed ? (
+          {status !== 'success' ? (
             <form className="newsletter-form" onSubmit={handleSubmit}>
               <div className="input-group">
                 <input
@@ -87,12 +94,15 @@ export default function Newsletter() {
                   required
                 />
                 <button type="submit" className="btn btn-primary">
-                  Subscribe →
+                  {status === 'loading' ? 'Subscribing…' : 'Subscribe →'}
                 </button>
               </div>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                 No spam. Unsubscribe anytime. We respect your privacy.
               </p>
+              {status === 'error' && (
+                <p style={{ color: '#d04530', marginTop: '8px' }}>Could not subscribe. Please try again.</p>
+              )}
             </form>
           ) : (
             <div className="form-success" style={{ marginTop: '32px' }}>
