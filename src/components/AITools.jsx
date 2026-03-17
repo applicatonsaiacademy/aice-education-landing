@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
-import ChatGptLogo from '../assets/chatgpt-logo.png'
+import ChatGptLogo from '../assets/chatgpt-logo.svg'
 
 function ToolLogo({ name, logo }) {
   const [failed, setFailed] = useState(false)
