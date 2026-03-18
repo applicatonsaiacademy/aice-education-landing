@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
 import { saveContact } from '../lib/forms'
+import { Mail, Linkedin, Globe, CheckCircle } from 'lucide-react'
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -10,9 +11,9 @@ const pageVariants = {
 }
 
 const contactInfo = [
-  { icon: '✉️', title: 'Email Us', detail: 'hello@aice.education', desc: 'We typically respond within 24 hours' },
-  { icon: '💼', title: 'LinkedIn', detail: 'AICE Education', desc: 'Follow us for updates and insights' },
-  { icon: '🌐', title: 'Global', detail: 'Available Worldwide', desc: 'Digital program accessible globally' },
+  { icon: <Mail aria-hidden="true" />, title: 'Email Us', detail: 'hello@aice.education', desc: 'We typically respond within 24 hours' },
+  { icon: <Linkedin aria-hidden="true" />, title: 'LinkedIn', detail: 'AICE Education', desc: 'Follow us for updates and insights' },
+  { icon: <Globe aria-hidden="true" />, title: 'Global', detail: 'Available Worldwide', desc: 'Digital program accessible globally' },
 ]
 
 export default function Contact() {
@@ -139,8 +140,10 @@ export default function Contact() {
                   </form>
                 ) : (
                   <div className="form-success">
-                    <div className="success-icon">✓</div>
-                    <h3>Message Sent! 🎉</h3>
+                    <div className="success-icon" style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+                      <CheckCircle size={48} color="#22c55e" />
+                    </div>
+                    <h3>Message Sent!</h3>
                     <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
                     <button
                       className="btn btn-secondary"

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
 import { saveNewsletter } from '../lib/forms'
+import { Wrench, FileText, Briefcase, Mail, PartyPopper } from 'lucide-react'
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -10,9 +11,9 @@ const pageVariants = {
 }
 
 const features = [
-  { icon: '🛠️', title: 'Weekly Tool Updates', desc: 'Stay on top of the latest AI tools and how to use them' },
-  { icon: '📋', title: 'AI Case Studies', desc: 'Real-world examples and practical applications from the industry' },
-  { icon: '💼', title: 'AI Job Updates', desc: 'Hand-picked AI roles and opportunities delivered to your inbox' },
+  { icon: <Wrench size={24} />, title: 'Weekly Tool Updates', desc: 'Stay on top of the latest AI tools and how to use them' },
+  { icon: <FileText size={24} />, title: 'AI Case Studies', desc: 'Real-world examples and practical applications from the industry' },
+  { icon: <Briefcase size={24} />, title: 'AI Job Updates', desc: 'Hand-picked AI roles and opportunities delivered to your inbox' },
 ]
 
 const blogPosts = [
@@ -38,7 +39,7 @@ const blogPosts = [
   },
   {
     id: 5,
-    title: 'Top AI Trends Every Business Leader Should Know 🚀',
+    title: 'Top AI Trends Every Business Leader Should Know',
     preview: 'Stay ahead with the key AI trends shaping 2026: agentic AI, multimodal models, and responsible deployment. We summarize what matters for strategy and what you can safely ignore for now.',
   },
 ]
@@ -72,7 +73,9 @@ export default function Newsletter() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="newsletter-icon">📬</div>
+          <div className="newsletter-icon" style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+            <Mail size={48} />
+          </div>
           <span className="section-label">Newsletter</span>
           <h1 className="section-title" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
             Stay Ahead of the<br />AI Revolution
@@ -107,7 +110,7 @@ export default function Newsletter() {
           ) : (
             <div className="form-success" style={{ marginTop: '32px' }}>
               <div className="success-icon">✓</div>
-              <h3>Welcome aboard! 🎉</h3>
+              <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>Welcome aboard! <PartyPopper size={28} /></h3>
               <p>You're now subscribed to the AICE newsletter. Check your inbox soon.</p>
             </div>
           )}

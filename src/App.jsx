@@ -8,12 +8,14 @@ import Newsletter from './pages/Newsletter'
 import Contact from './pages/Contact'
 import Founders from './pages/Founders'
 import Admin from './pages/Admin'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   const location = useLocation()
 
   return (
     <>
+      <ScrollToTop />
       <div className="app-content">
         {location.pathname !== '/admin' && <Navbar />}
         <AnimatePresence mode="wait">
