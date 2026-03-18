@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
+import { saveContact } from '../lib/forms'
 
 const pageVariants = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
+  exit: { opacity: 0, transition: { duration: 0.3 } },
 }
 
 const contactInfo = [
@@ -16,17 +17,23 @@ const contactInfo = [
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState('idle') // idle | loading | success | error
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Contact form submission:', formData)
-    setSubmitted(true)
-    setFormData({ name: '', email: '', subject: '', message: '' })
+    setStatus('loading')
+    try {
+      await saveContact(formData)
+      setStatus('success')
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    } catch (err) {
+      console.error(err)
+      setStatus('error')
+    }
   }
 
   return (
@@ -66,7 +73,7 @@ export default function Contact() {
 
             <ScrollReveal direction="right" delay={0.15}>
               <div className="glass-card contact-form-card">
-                {!submitted ? (
+                {status !== 'success' ? (
                   <form className="contact-form" onSubmit={handleSubmit}>
                     <div className="form-row">
                       <div className="form-group">
@@ -122,8 +129,13 @@ export default function Contact() {
                       ></textarea>
                     </div>
                     <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-                      Send Message →
+                      {status === 'loading' ? 'Sending…' : 'Send Message →'}
                     </button>
+                    {status === 'error' && (
+                      <p style={{ color: '#d04530', marginTop: '10px' }}>
+                        Something went wrong. Please try again.
+                      </p>
+                    )}
                   </form>
                 ) : (
                   <div className="form-success">
@@ -132,7 +144,7 @@ export default function Contact() {
                     <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
                     <button
                       className="btn btn-secondary"
-                      onClick={() => setSubmitted(false)}
+                      onClick={() => setStatus('idle')}
                       style={{ marginTop: '12px' }}
                     >
                       Send Another Message

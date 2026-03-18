@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <span className="nav-logo">AICE<span className="dot">.</span>education</span>
+            <span className="nav-logo">AICE<span className="dot">.</span>Education</span>
             <p>
               Building an AI-ready world. Practical AI education for leaders,
               entrepreneurs, and professionals who want to harness AI responsibly
@@ -15,34 +15,38 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Navigate</h4>
-            <Link to="/">Home</Link>
-            <Link to="/courses">Courses</Link>
-            <Link to="/newsletter">Newsletter</Link>
-            <Link to="/contact">Contact</Link>
+            <h4>Get Started</h4>
+            <Link to="/courses">Explore Courses</Link>
+            <Link to="/courses">Pre-Enroll</Link>
+            <Link to="/contact">Contact Us</Link>
           </div>
 
           <div className="footer-col">
-            <h4>Program</h4>
+            <h4>Discover</h4>
             <Link to="/courses">AI for Business Leaders</Link>
             <Link to="/courses">Certification</Link>
-            <Link to="/courses">Pre-Enroll</Link>
+            <Link to="/founders">Meet the Founders</Link>
+            <Link to="/newsletter">Newsletter</Link>
           </div>
 
           <div className="footer-col">
             <h4>Connect</h4>
-            <a href="mailto:hello@aice.education">hello@aice.education</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+            <a href="https://www.linkedin.com/company/aice-academy/posts/?feedView=all" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://x.com/AICenterOE" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+            <a href="https://www.instagram.com/aice.socials/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=61588597383926" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.youtube.com/@AICE.Socials/videos" target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
         </div>
 
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} AICE Education. All rights reserved.</p>
           <div className="footer-social">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">𝕏</a>
-            <a href="mailto:hello@aice.education" aria-label="Email">✉</a>
+            <a href="https://www.linkedin.com/company/aice-academy/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+            <a href="https://x.com/AICenterOE" target="_blank" rel="noopener noreferrer" aria-label="X">𝕏</a>
+            <a href="https://www.instagram.com/aice.socials/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+            <a href="https://www.facebook.com/profile.php?id=61588597383926" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+            <a href="https://www.youtube.com/@AICE.Socials/videos" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
           </div>
         </div>
       </div>

@@ -6,8 +6,8 @@ export default function ScrollReveal({
   width = '100%',
   delay = 0,
   direction = 'up',
-  distance = 40,
-  duration = 0.6,
+  distance = 60,
+  duration = 0.8,
   once = true,
 }) {
   const ref = useRef(null)
@@ -44,7 +44,7 @@ export default function ScrollReveal({
             transition: {
               duration,
               delay,
-              ease: [0.25, 0.1, 0.25, 1],
+              ease: [0.22, 1, 0.36, 1],
             },
           },
         }}
