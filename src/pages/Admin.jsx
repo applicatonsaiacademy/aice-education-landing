@@ -26,6 +26,8 @@ export default function Admin() {
   const [loginPassword, setLoginPassword] = useState('')
   const [loginError, setLoginError] = useState('')
 
+
+
   const loadAll = async () => {
     setLoading(true)
     setError('')
@@ -89,6 +91,8 @@ export default function Admin() {
   }
 
   const fmt = (d) => (d ? new Date(d).toLocaleString() : '—')
+
+
 
   if (!user) {
     return (

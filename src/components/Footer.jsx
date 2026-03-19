@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Instagram, Youtube } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -44,9 +45,9 @@ export default function Footer() {
           <div className="footer-social">
             <a href="https://www.linkedin.com/company/aice-academy/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
             <a href="https://x.com/AICenterOE" target="_blank" rel="noopener noreferrer" aria-label="X">𝕏</a>
-            <a href="https://www.instagram.com/aice.socials/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+            <a href="https://www.instagram.com/aice.socials/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={18} /></a>
             <a href="https://www.facebook.com/profile.php?id=61588597383926" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
-            <a href="https://www.youtube.com/@AICE.Socials/videos" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
+            <a href="https://www.youtube.com/@AICE.Socials/videos" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><Youtube size={18} /></a>
           </div>
         </div>
       </div>

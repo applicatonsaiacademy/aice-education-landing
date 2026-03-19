@@ -2,8 +2,13 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
 import AnimatedText from '../components/AnimatedText'
+import ScrollFillText from '../components/ScrollFillText'
+import AnimatedGlobe from '../components/AnimatedGlobe'
 import AITools from '../components/AITools'
+import CountUp from '../components/CountUp'
+import MarqueeTicker from '../components/MarqueeTicker'
 import Innovators from '../components/Innovators'
+import { Target, Zap, Bot, TrendingUp, BookOpen, Rocket, Star } from 'lucide-react'
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -12,10 +17,10 @@ const pageVariants = {
 }
 
 const features = [
-  { icon: '🎯', title: 'Real-World Application', desc: 'Apply AI in actual business situations, not just theory.' },
-  { icon: '⚡', title: 'Multiply Productivity', desc: 'Automate repetitive work and amplify decision-making power.' },
-  { icon: '🤖', title: 'Build AI Agents', desc: 'Design AI systems that function like digital employees.' },
-  { icon: '📈', title: 'Create Leverage', desc: 'Build systems that increase revenue and reduce operational drag.' },
+  { icon: <Target size={28} />, title: 'Real-World Application', desc: 'Apply AI in actual business situations, not just theory.' },
+  { icon: <Zap size={28} />, title: 'Multiply Productivity', desc: 'Automate repetitive work and amplify decision-making power.' },
+  { icon: <Bot size={28} />, title: 'Build AI Agents', desc: 'Design AI systems that function like digital employees.' },
+  { icon: <TrendingUp size={28} />, title: 'Create Leverage', desc: 'Build systems that increase revenue and reduce operational drag.' },
 ]
 
 const testimonials = [
@@ -50,10 +55,10 @@ const testimonials = [
 ]
 
 const stats = [
-  { number: '1,000+', label: 'Learners Worldwide' },
-  { number: '6', label: 'Core Modules' },
-  { number: '98%', label: 'Satisfaction Rate' },
-  { number: '∞', label: 'Lifetime Access' },
+  { target: '1000', suffix: '+', label: 'Learners Worldwide' },
+  { target: '6', suffix: '', label: 'Core Modules' },
+  { target: '98', suffix: '%', label: 'Satisfaction Rate' },
+  { isInfinity: true, label: 'Lifetime Access' },
 ]
 
 export default function Home() {
@@ -68,7 +73,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <div className="hero-text" style={{ gridColumn: '1 / -1', maxWidth: '720px' }}>
+          <div className="hero-text">
             <div className="hero-badge">
               ✦ Artificial Intelligence Centre of Excellence
             </div>
@@ -79,12 +84,8 @@ export default function Home() {
               className="hero-title" 
             />
             
-            <p className="hero-subtitle">
-              Strategic, outcome-driven AI education. Learn to leverage artificial intelligence 
-              to scale operations, increase revenue, and build a massive competitive advantage.
-            </p>
-            <p className="hero-subtitle" style={{ marginBottom: '32px', maxWidth: '580px' }}>
-              Equipping today's executives, founders, and entrepreneurs with the practical AI strategies to drive immediate business impact.
+            <p className="hero-subtitle" style={{ marginBottom: '40px', maxWidth: '600px', fontSize: '1.15rem' }}>
+              Master artificial intelligence to scale operations, multiply revenue, and build an <span style={{ color: 'var(--primary)' }}>unfair competitive advantage</span>.
             </p>
             <div className="hero-cta-group">
               <Link to="/courses" className="btn btn-white btn-glow">
@@ -95,6 +96,9 @@ export default function Home() {
               </Link>
             </div>
           </div>
+          <div className="hero-globe-wrapper">
+            <AnimatedGlobe />
+          </div>
         </motion.div>
 
         <div className="hero-scroll-indicator">
@@ -104,14 +108,11 @@ export default function Home() {
       </section>
 
       {/* ===== MASSIVE IMPACT HEADING — Jeton Style ===== */}
-      <section className="impact-section">
-        <ScrollReveal>
-          <AnimatedText 
-            text="AI Mastery for Business Leaders" 
-            el="h2" 
-            className="section-title-massive" 
-          />
-        </ScrollReveal>
+      <section className="impact-section" style={{ minHeight: '120vh' }}>
+        <ScrollFillText 
+          text="AI Mastery for Business Leaders" 
+          className="section-title-massive" 
+        />
         <div className="impact-scroll">
           <span>Discover</span>
           <div className="scroll-arrow"></div>
@@ -120,27 +121,63 @@ export default function Home() {
 
       {/* ===== COLOR-CODED FEATURES — Jeton Style ===== */}
       <section className="features-color-section">
-        <div className="feature-color-list">
-          <ScrollReveal>
-            <motion.div className="feature-color-item" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-              <div className="feature-color-icon green">📚</div>
-              <span className="feature-color-text green">Learn</span>
-            </motion.div>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'center' }}>
+          
+          <div className="feature-color-list" style={{ alignItems: 'flex-start', margin: 0 }}>
+            <ScrollReveal>
+              <motion.div className="feature-color-item" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+                <div className="feature-color-icon green"><BookOpen size={24} /></div>
+                <span className="feature-color-text green">Learn</span>
+              </motion.div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.15}>
+              <motion.div className="feature-color-item" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+                <div className="feature-color-icon blue"><Zap size={24} /></div>
+                <span className="feature-color-text blue">Build</span>
+              </motion.div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.3}>
+              <motion.div className="feature-color-item" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+                <div className="feature-color-icon coral"><Rocket size={24} /></div>
+                <span className="feature-color-text coral">Deploy</span>
+              </motion.div>
+            </ScrollReveal>
+          </div>
+
+          <ScrollReveal delay={0.4}>
+            <div className="floating-cards-visual">
+              <div className="floating-card fc-1">
+                <div className="fc-header">
+                  <div className="fc-dot red"></div><div className="fc-dot yellow"></div><div className="fc-dot green"></div>
+                </div>
+                <div className="fc-body">
+                   <div className="fc-line w-80"></div>
+                   <div className="fc-line w-60"></div>
+                   <div className="fc-line w-90"></div>
+                   <div className="fc-line w-40" style={{ marginTop: '24px' }}></div>
+                </div>
+              </div>
+              
+              <div className="floating-card fc-2">
+                <div className="fc-icon"><Bot size={20} /></div>
+                <div className="fc-text">
+                  <div className="fc-title">AI Agent Deployed</div>
+                  <div className="fc-subtitle">Status: Active</div>
+                </div>
+              </div>
+
+              <div className="floating-card fc-3">
+                <TrendingUp size={32} color="var(--accent-green)" />
+                <div className="fc-stat">+140% Output</div>
+              </div>
+            </div>
           </ScrollReveal>
-          <ScrollReveal delay={0.15}>
-            <motion.div className="feature-color-item" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-              <div className="feature-color-icon blue">⚡</div>
-              <span className="feature-color-text blue">Build</span>
-            </motion.div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.3}>
-            <motion.div className="feature-color-item" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-              <div className="feature-color-icon coral">🚀</div>
-              <span className="feature-color-text coral">Deploy</span>
-            </motion.div>
-          </ScrollReveal>
+
         </div>
       </section>
+
+      {/* ===== MARQUEE TICKER ===== */}
+      <MarqueeTicker />
 
       {/* ===== FEATURE DETAIL CARDS ===== */}
       <section className="feature-detail-section">
@@ -149,7 +186,7 @@ export default function Home() {
             <div className="text-center">
               <span className="section-label">Why AICE</span>
               <h2 className="section-title">
-                Most AI courses teach tools.<br />We teach capability.
+                Most AI courses teach tools. We teach <span style={{ color: '#000' }}>capability</span>.
               </h2>
               <p className="section-subtitle mx-auto">
                 Our programs focus on helping you create real leverage with AI — not just follow tutorials.
@@ -161,10 +198,11 @@ export default function Home() {
             {features.map((f, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
                 <motion.div
-                  className="feature-detail-card"
+                  className="feature-detail-card kontenta-card"
                   whileHover={{ y: -6, transition: { duration: 0.25 } }}
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                 >
+                  <div className="kontenta-card-number">0{i + 1}</div>
                   <div className="feature-detail-card-icon">{f.icon}</div>
                   <h3>{f.title}</h3>
                   <p>{f.desc}</p>
@@ -189,7 +227,9 @@ export default function Home() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="stat-number">{s.number}</div>
+                  <div className="stat-number">
+                    {s.isInfinity ? '∞' : <CountUp target={s.target} suffix={s.suffix} />}
+                  </div>
                   <div className="stat-label">{s.label}</div>
                 </motion.div>
               </ScrollReveal>
@@ -221,7 +261,9 @@ export default function Home() {
                   whileHover={{ y: -4, boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}
                   transition={{ duration: 0.25 }}
                 >
-                  <div className="testimonial-stars">★★★★★</div>
+                  <div className="testimonial-stars" style={{ display: 'flex', gap: '4px', color: '#f59e0b', marginBottom: '16px' }}>
+                    {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
+                  </div>
                   <div className="testimonial-title">{t.title}</div>
                   <div className="testimonial-text">{t.text}</div>
                   <div className="testimonial-author">
