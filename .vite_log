@@ -1,0 +1,22 @@
+
+> aice-education-landing-page@0.0.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 174 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://192.168.1.17:3000/
+2:52:29 PM [vite] hmr update /src/pages/Courses.jsx
+2:56:25 PM [vite] hmr update /src/pages/Home.jsx
+3:05:20 PM [vite] hmr update /src/pages/Home.jsx
+3:05:22 PM [vite] hmr update /src/index.css
+3:13:46 PM [vite] hmr update /src/index.css
+3:13:47 PM [vite] hmr update /src/pages/Courses.jsx
+3:18:10 PM [vite] hmr update /src/pages/Home.jsx
+3:32:49 PM [vite] hmr update /src/index.css
+3:34:24 PM [vite] hmr update /src/index.css
+3:43:16 PM [vite] hmr update /src/pages/Home.jsx
+3:44:20 PM [vite] hmr update /src/index.css
+3:45:02 PM [vite] hmr update /src/pages/Home.jsx
+3:46:05 PM [vite] hmr update /src/index.css
