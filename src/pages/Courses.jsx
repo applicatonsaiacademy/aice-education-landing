@@ -89,13 +89,13 @@ export default function Courses() {
         <div className="container">
           <ScrollReveal>
             <motion.div
-              className="featured-course-card"
+              className="featured-course-card fcc-dark"
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              {/* Top bar */}
+              {/* Top row */}
               <div className="fcc-topbar">
                 <div className="fcc-topbar-left">
                   <span className="fcc-tag">{FEATURED.tag}</span>
@@ -107,57 +107,25 @@ export default function Courses() {
                 <span className="fcc-no-code">No coding required</span>
               </div>
 
-              {/* Body */}
-              <div className="fcc-body">
-                {/* Left — main info */}
-                <div className="fcc-main">
-                  <h2 className="fcc-title">{FEATURED.title}</h2>
-                  <p className="fcc-desc">{FEATURED.description}</p>
+              {/* Hero title */}
+              <h2 className="fcc-hero-title">{FEATURED.title}</h2>
 
-                  <div className="fcc-highlights">
-                    <div className="fcc-highlight-item">
-                      <span className="fcc-highlight-num">5</span>
-                      <span className="fcc-highlight-label">Core Modules</span>
-                    </div>
-                    <div className="fcc-highlight-sep" />
-                    <div className="fcc-highlight-item">
-                      <span className="fcc-highlight-num">3</span>
-                      <span className="fcc-highlight-label">Optional Electives</span>
-                    </div>
-                    <div className="fcc-highlight-sep" />
-                    <div className="fcc-highlight-item">
-                      <span className="fcc-highlight-num">1</span>
-                      <span className="fcc-highlight-label">Capstone Project</span>
-                    </div>
+              {/* Modules grid */}
+              <div className="fcc-modules-grid">
+                {FEATURED.modules.map((m) => (
+                  <div key={m.num} className="fcc-module-item">
+                    <span className="fcc-module-num">{m.num}</span>
+                    <span className="fcc-module-title">{m.title}</span>
                   </div>
+                ))}
+              </div>
 
-                  <a href="#pre-enroll" className="btn btn-primary fcc-cta">
-                    Pre-Enroll for Early Access →
-                  </a>
-                  <p className="fcc-cta-note">No payment now. Exclusive discount when we launch.</p>
-                </div>
-
-                {/* Right — curriculum */}
-                <div className="fcc-curriculum">
-                  <div className="fcc-curriculum-header">
-                    <span className="fcc-curriculum-label">Course Curriculum</span>
-                  </div>
-                  <div className="fcc-modules">
-                    {FEATURED.modules.map((m) => (
-                      <div key={m.num} className="fcc-module-row">
-                        <span className="fcc-module-num">{m.num}</span>
-                        <span className="fcc-module-title">{m.title}</span>
-                      </div>
-                    ))}
-                    <div className="fcc-modules-divider" />
-                    {FEATURED.extras.map((e) => (
-                      <div key={e} className="fcc-module-row fcc-extra">
-                        <span className="fcc-module-num">+</span>
-                        <span className="fcc-module-title">{e}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              {/* Footer CTA */}
+              <div className="fcc-footer">
+                <a href="#pre-enroll" className="btn btn-white fcc-cta">
+                  Pre-Enroll for Early Access →
+                </a>
+                <p className="fcc-cta-note">No payment now. Exclusive discount at launch.</p>
               </div>
             </motion.div>
           </ScrollReveal>
@@ -211,35 +179,31 @@ export default function Courses() {
             <div className="pre-enroll-box">
               {!enrolled ? (
                 <>
-                  <div className="pre-enroll-inner">
-                    <div className="pre-enroll-text">
-                      <span className="pre-enroll-eyebrow">Early Access</span>
-                      <h2 className="pre-enroll-heading">Be the first to know.</h2>
-                      <p className="pre-enroll-sub">
-                        Join the waitlist for AI for Business Leaders and get an exclusive
-                        discount when enrollment opens.
-                      </p>
+                  <span className="pre-enroll-eyebrow">Early Access</span>
+                  <h2 className="pre-enroll-heading">Be the first to know.</h2>
+                  <p className="pre-enroll-sub">
+                    Join the waitlist for <em>AI for Business Leaders</em> and get an exclusive
+                    discount when enrollment opens.
+                  </p>
+                  <form className="pre-enroll-form" onSubmit={handlePreEnroll}>
+                    <div className="pre-enroll-row">
+                      <input
+                        type="email"
+                        className="pre-enroll-input"
+                        placeholder="your@email.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                      <button type="submit" className="btn btn-white">
+                        {status === 'loading' ? 'Saving…' : 'Join Waitlist →'}
+                      </button>
                     </div>
-                    <form className="pre-enroll-form" onSubmit={handlePreEnroll}>
-                      <div className="pre-enroll-row">
-                        <input
-                          type="email"
-                          className="pre-enroll-input"
-                          placeholder="your@email.com"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                        />
-                        <button type="submit" className="btn btn-white">
-                          {status === 'loading' ? 'Saving…' : 'Join Waitlist →'}
-                        </button>
-                      </div>
-                      {status === 'error' && (
-                        <p className="pre-enroll-error">Could not save. Please try again.</p>
-                      )}
-                      <p className="pre-enroll-note">No spam. We'll only email when enrollment opens.</p>
-                    </form>
-                  </div>
+                    {status === 'error' && (
+                      <p className="pre-enroll-error">Could not save. Please try again.</p>
+                    )}
+                    <p className="pre-enroll-note">No spam. We'll only email when enrollment opens.</p>
+                  </form>
                 </>
               ) : (
                 <div className="form-success">

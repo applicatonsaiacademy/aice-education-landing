@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
-import AnimatedText from '../components/AnimatedText'
 import HeroMesh from '../components/HeroMesh'
 import AITools from '../components/AITools'
 import CountUp from '../components/CountUp'
@@ -74,33 +73,28 @@ export default function Home() {
           transition={{ duration: 0.85, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="hero-text">
-            {/* Audience pills */}
             <motion.div
-              className="hero-pills"
+              className="hero-label"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
             >
-              {['Business Leaders', 'Engineers', 'Marketers', 'Healthcare'].map((label) => (
-                <span key={label} className="hero-pill">
-                  <span className="hero-pill-dot" />
-                  {label}
-                </span>
-              ))}
+              <span className="hero-label-dot" />
+              AI Centre of Excellence
             </motion.div>
 
-            <div className="hero-badge">
-              ✦ AI Centre of Excellence
-            </div>
-
-            <AnimatedText
-              text="Where Every Role Meets AI"
-              el="h1"
+            <motion.h1
               className="hero-title"
-            />
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.85, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              Where Every Role Meets{' '}
+              <span className="hero-accent-word">AI</span>
+            </motion.h1>
 
             <p className="hero-subtitle">
-              Practical AI education for every industry — business, healthcare, engineering, marketing, and more.
+              Practical AI education built for your role — business, healthcare, engineering, marketing, and beyond.
             </p>
 
             <div className="hero-cta-group">
@@ -111,7 +105,67 @@ export default function Home() {
                 Read Newsletter
               </Link>
             </div>
+            <p className="hero-proof">Trusted by 1,000+ professionals — zero coding required</p>
           </div>
+
+          {/* Hero Visual — animated course preview mockup */}
+          <motion.div
+            className="hero-visual-panel"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <div className="hv-card">
+              <div className="hv-card-top">
+                <div className="hv-card-tag">First Course · Coming Soon</div>
+                <div className="hv-card-title">AI for Business Leaders</div>
+                <div className="hv-progress-bar">
+                  <div className="hv-progress-fill" />
+                </div>
+                <span className="hv-progress-label">Module 3 of 5</span>
+              </div>
+              <div className="hv-modules">
+                {[
+                  { label: 'AI at Work: Your First Wins', done: true },
+                  { label: 'Your Personal AI Workbench', done: true },
+                  { label: 'AI Leadership Playbook', active: true },
+                  { label: 'AI Across Business Functions', done: false },
+                  { label: 'Workflows, Automation & Agents', done: false },
+                ].map((m, i) => (
+                  <div key={i} className={`hv-module${m.done ? ' hv-done' : m.active ? ' hv-active' : ''}`}>
+                    <span className="hv-module-check">
+                      {m.done ? '✓' : m.active ? '▶' : ''}
+                    </span>
+                    <span className="hv-module-label">{m.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <motion.div
+              className="hv-badge hv-badge-1"
+              animate={{ y: [0, -7, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <div className="hv-badge-dot hv-badge-dot-green" />
+              <div>
+                <div className="hv-badge-num">1000+</div>
+                <div className="hv-badge-sub">Learners</div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="hv-badge hv-badge-2"
+              animate={{ y: [0, 7, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+            >
+              <div className="hv-badge-dot hv-badge-dot-indigo" />
+              <div>
+                <div className="hv-badge-num">Zero Code</div>
+                <div className="hv-badge-sub">Required</div>
+              </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
 
         <div className="hero-scroll-indicator">

@@ -17,7 +17,7 @@ export default function Admin() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const [post, setPost] = useState({ title: '', preview: '' })
+  const [post, setPost] = useState({ title: '', preview: '', imageUrl: '' })
   const [postStatus, setPostStatus] = useState('idle') // idle | loading | success | error
 
   const [user, setUser] = useState(null)
@@ -72,7 +72,7 @@ export default function Admin() {
     setPostStatus('loading')
     try {
       await saveBlogPost(post)
-      setPost({ title: '', preview: '' })
+      setPost({ title: '', preview: '', imageUrl: '' })
       setPostStatus('success')
     } catch (err) {
       console.error(err)
@@ -231,6 +231,12 @@ export default function Admin() {
                 value={post.preview}
                 onChange={(e) => setPost({ ...post, preview: e.target.value })}
                 required
+              />
+              <input
+                type="url"
+                placeholder="Cover Image URL (optional)"
+                value={post.imageUrl}
+                onChange={(e) => setPost({ ...post, imageUrl: e.target.value })}
               />
               <div className="admin-blog-actions">
                 <button type="submit" className="btn btn-primary" disabled={postStatus === 'loading'}>

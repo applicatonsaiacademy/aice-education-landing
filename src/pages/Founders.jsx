@@ -25,20 +25,20 @@ const founders = [
     x: 'https://x.com/hrushikuklare',
   },
   {
+    name: 'Siddhesh Bandgar',
+    role: 'Co-Founder',
+    focus: 'Product & Engineering',
+    image: '/founders/siddhesh.jpg',
+    linkedin: 'https://www.linkedin.com/in/siddhesh-bandgar/',
+    x: 'https://x.com/SiddheshBandgar',
+  },
+  {
     name: 'Ajinkya Hazare',
     role: 'Co-Founder',
     focus: 'Innovation & Growth',
     image: 'https://www.aice.services/_next/image?url=%2Ffounders%2Fajinkya.png&w=384&q=75',
     linkedin: 'https://linkedin.com/in/ajinkya-hazare',
     x: 'https://x.com/Ajinkya_Hazare',
-  },
-  {
-    name: 'Siddhesh Bandgar',
-    role: 'Co-Founder',
-    focus: 'Innovation & Growth',
-    image: '/founders/siddhesh.jpg',
-    linkedin: 'https://www.linkedin.com/in/siddhesh-bandgar/',
-    x: 'https://x.com/SiddheshBandgar',
   },
 ]
 
