@@ -2,13 +2,12 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
 import AnimatedText from '../components/AnimatedText'
-import ScrollFillText from '../components/ScrollFillText'
-import AnimatedGlobe from '../components/AnimatedGlobe'
+import HeroMesh from '../components/HeroMesh'
 import AITools from '../components/AITools'
 import CountUp from '../components/CountUp'
 import MarqueeTicker from '../components/MarqueeTicker'
 import Innovators from '../components/Innovators'
-import { Target, Zap, Bot, TrendingUp, BookOpen, Rocket, Star } from 'lucide-react'
+import { Target, Zap, Bot, TrendingUp, Star } from 'lucide-react'
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -65,39 +64,53 @@ export default function Home() {
   return (
     <motion.div className="page-wrapper" variants={pageVariants} initial="initial" animate="animate" exit="exit">
 
-      {/* ===== HERO — Jeton Style ===== */}
+      {/* ===== HERO ===== */}
       <section className="hero">
-        <motion.div 
+        <HeroMesh />
+        <motion.div
           className="hero-content"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.85, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="hero-text">
+            {/* Audience pills */}
+            <motion.div
+              className="hero-pills"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              {['Business Leaders', 'Engineers', 'Marketers', 'Healthcare'].map((label) => (
+                <span key={label} className="hero-pill">
+                  <span className="hero-pill-dot" />
+                  {label}
+                </span>
+              ))}
+            </motion.div>
+
             <div className="hero-badge">
-              ✦ Artificial Intelligence Centre of Excellence
+              ✦ AI Centre of Excellence
             </div>
-            
-            <AnimatedText 
-              text="The AI Academy for Business Leaders" 
-              el="h1" 
-              className="hero-title" 
+
+            <AnimatedText
+              text="Where Every Role Meets AI"
+              el="h1"
+              className="hero-title"
             />
-            
-            <p className="hero-subtitle" style={{ marginBottom: '40px', maxWidth: '600px', fontSize: '1.15rem' }}>
-              Master artificial intelligence to scale operations, multiply revenue, and build an <span style={{ color: 'var(--primary)' }}>unfair competitive advantage</span>.
+
+            <p className="hero-subtitle">
+              Practical AI education for every industry — business, healthcare, engineering, marketing, and more.
             </p>
+
             <div className="hero-cta-group">
-              <Link to="/courses" className="btn btn-white btn-glow">
+              <Link to="/courses" className="btn btn-primary">
                 Explore Courses →
               </Link>
-              <Link to="/contact" className="btn btn-white">
-                Learn More
+              <Link to="/newsletter" className="btn btn-white">
+                Read Newsletter
               </Link>
             </div>
-          </div>
-          <div className="hero-globe-wrapper">
-            <AnimatedGlobe />
           </div>
         </motion.div>
 
@@ -107,72 +120,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== MASSIVE IMPACT HEADING — Jeton Style ===== */}
-      <section className="impact-section" style={{ minHeight: '120vh' }}>
-        <ScrollFillText 
-          text="AI Mastery for Business Leaders" 
-          className="section-title-massive" 
-        />
-        <div className="impact-scroll">
-          <span>Discover</span>
-          <div className="scroll-arrow"></div>
-        </div>
-      </section>
-
-      {/* ===== COLOR-CODED FEATURES — Jeton Style ===== */}
-      <section className="features-color-section">
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'center' }}>
-          
-          <div className="feature-color-list" style={{ alignItems: 'flex-start', margin: 0 }}>
-            <ScrollReveal>
-              <motion.div className="feature-color-item" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-                <div className="feature-color-icon green"><BookOpen size={24} /></div>
-                <span className="feature-color-text green">Learn</span>
-              </motion.div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.15}>
-              <motion.div className="feature-color-item" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-                <div className="feature-color-icon blue"><Zap size={24} /></div>
-                <span className="feature-color-text blue">Build</span>
-              </motion.div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.3}>
-              <motion.div className="feature-color-item" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-                <div className="feature-color-icon coral"><Rocket size={24} /></div>
-                <span className="feature-color-text coral">Deploy</span>
-              </motion.div>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal delay={0.4}>
-            <div className="floating-cards-visual">
-              <div className="floating-card fc-1">
-                <div className="fc-header">
-                  <div className="fc-dot red"></div><div className="fc-dot yellow"></div><div className="fc-dot green"></div>
-                </div>
-                <div className="fc-body">
-                   <div className="fc-line w-80"></div>
-                   <div className="fc-line w-60"></div>
-                   <div className="fc-line w-90"></div>
-                   <div className="fc-line w-40" style={{ marginTop: '24px' }}></div>
-                </div>
+      {/* ===== EDITORIAL STATEMENT ===== */}
+      <section className="editorial-section">
+        <div className="container">
+          <ScrollReveal>
+            <div className="editorial-grid">
+              <div className="editorial-left">
+                <span className="editorial-eyebrow">Our Approach</span>
+                <h2 className="editorial-heading">
+                  Built for your role.<br />Not for AI in general.
+                </h2>
+                <p className="editorial-body">
+                  Every industry demands a different AI strategy. AICE programs are built
+                  around your domain — so every lesson applies directly to your work,
+                  your decisions, and your career.
+                </p>
+                <Link to="/courses" className="btn btn-outline-dark" style={{ marginTop: '36px' }}>
+                  View All Courses →
+                </Link>
               </div>
-              
-              <div className="floating-card fc-2">
-                <div className="fc-icon"><Bot size={20} /></div>
-                <div className="fc-text">
-                  <div className="fc-title">AI Agent Deployed</div>
-                  <div className="fc-subtitle">Status: Active</div>
+              <div className="editorial-right">
+                <div className="editorial-stats">
+                  <motion.div
+                    className="editorial-stat"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
+                    <span className="editorial-stat-num">6+</span>
+                    <span className="editorial-stat-label">Industry Tracks</span>
+                  </motion.div>
+                  <motion.div
+                    className="editorial-stat"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <span className="editorial-stat-num">5</span>
+                    <span className="editorial-stat-label">Core Modules</span>
+                  </motion.div>
+                  <motion.div
+                    className="editorial-stat"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
+                    <span className="editorial-stat-num">∞</span>
+                    <span className="editorial-stat-label">Lifetime Access</span>
+                  </motion.div>
+                  <motion.div
+                    className="editorial-stat"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                  >
+                    <span className="editorial-stat-num">0</span>
+                    <span className="editorial-stat-label">Code Required</span>
+                  </motion.div>
                 </div>
-              </div>
-
-              <div className="floating-card fc-3">
-                <TrendingUp size={32} color="var(--accent-green)" />
-                <div className="fc-stat">+140% Output</div>
               </div>
             </div>
           </ScrollReveal>
-
         </div>
       </section>
 
@@ -186,7 +198,7 @@ export default function Home() {
             <div className="text-center">
               <span className="section-label">Why AICE</span>
               <h2 className="section-title">
-                Most AI courses teach tools. We teach <span style={{ color: '#000' }}>capability</span>.
+                Most AI courses teach tools. We teach <span style={{ color: 'var(--primary)' }}>capability</span>.
               </h2>
               <p className="section-subtitle mx-auto">
                 Our programs focus on helping you create real leverage with AI — not just follow tutorials.

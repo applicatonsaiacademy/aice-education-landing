@@ -2,104 +2,84 @@ import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
 import ChatGptLogo from '../assets/chatgpt-logo.svg'
 
-function ToolLogo({ name, logo }) {
+const tools = [
+  { name: 'ChatGPT', logo: ChatGptLogo },
+  { name: 'Google Gemini', logo: 'https://icon.horse/icon/gemini.google.com' },
+  { name: 'Microsoft Copilot', logo: 'https://icon.horse/icon/microsoft.com' },
+  { name: 'Claude', logo: 'https://icon.horse/icon/claude.ai' },
+  { name: 'Perplexity', logo: 'https://icon.horse/icon/www.perplexity.ai' },
+  { name: 'Zapier', logo: 'https://icon.horse/icon/zapier.com' },
+  { name: 'Lindy.ai', logo: 'https://icon.horse/icon/www.lindy.ai' },
+  { name: 'Julius AI', logo: 'https://icon.horse/icon/julius.ai' },
+  { name: 'Gamma', logo: 'https://icon.horse/icon/gamma.app' },
+  { name: 'NotebookLM', logo: 'https://icon.horse/icon/notebooklm.google' },
+  { name: 'Canva', logo: 'https://icon.horse/icon/www.canva.com' },
+  { name: 'HubSpot AI', logo: 'https://icon.horse/icon/www.hubspot.com' },
+  { name: 'Jasper', logo: 'https://icon.horse/icon/www.jasper.ai' },
+  { name: 'Clay', logo: 'https://icon.horse/icon/www.clay.com' },
+  { name: 'ElevenLabs', logo: 'https://icon.horse/icon/elevenlabs.io' },
+  { name: 'Synthesia', logo: 'https://icon.horse/icon/www.synthesia.io' },
+  { name: 'Runway ML', logo: 'https://icon.horse/icon/runwayml.com' },
+  { name: 'Glean', logo: 'https://icon.horse/icon/www.glean.com' },
+  { name: 'Motion', logo: 'https://icon.horse/icon/www.usemotion.com' },
+  { name: 'n8n', logo: 'https://icon.horse/icon/n8n.io' },
+]
+
+function ToolChip({ name, logo }) {
   const [failed, setFailed] = useState(false)
   const initials = name
-    .replace(/\s*&\s*a lot more!.*/i, '')
     .split(/\s+/)
     .filter(Boolean)
     .slice(0, 2)
     .map((w) => w[0])
     .join('')
-    .toUpperCase() || '?'
-  const showFallback = failed || !logo
+    .toUpperCase()
+
   return (
-    <div className="tool-logo-wrapper">
-      {showFallback ? (
-        <span className="tool-logo-fallback" aria-hidden>{initials.slice(0, 2)}</span>
-      ) : (
+    <div className="ai-tool-chip">
+      {!failed && logo ? (
         <img
           src={logo}
           alt=""
-          className="tool-logo-img"
+          className="ai-tool-chip-logo"
           loading="lazy"
           onError={() => setFailed(true)}
         />
+      ) : (
+        <div className="ai-tool-chip-fallback">{initials}</div>
       )}
+      <span className="ai-tool-chip-name">{name}</span>
     </div>
   )
 }
 
-const tools = [
-  // Foundational & Productivity
-  { name: 'ChatGPT', category: 'Foundational AI', logo: ChatGptLogo },
-  { name: 'Google Gemini', category: 'Foundational AI', logo: 'https://icon.horse/icon/gemini.google.com' },
-  { name: 'Microsoft 365 Copilot', category: 'Productivity AI', logo: 'https://icon.horse/icon/microsoft.com' },
-  { name: 'Claude 4', category: 'Foundational AI', logo: 'https://icon.horse/icon/claude.ai' },
-
-  // Automation & Agents
-  { name: 'Zapier Central', category: 'Automation AI', logo: 'https://icon.horse/icon/zapier.com' },
-  { name: 'Lindy.ai', category: 'AI Agents', logo: 'https://icon.horse/icon/www.lindy.ai' },
-  { name: 'CrewAI', category: 'AI Agents', logo: 'https://icon.horse/icon/www.crewai.com' },
-
-  // Sales & Marketing
-  { name: 'HubSpot AI CRM', category: 'Sales & Marketing', logo: 'https://icon.horse/icon/www.hubspot.com' },
-  { name: 'Jasper AI', category: 'Marketing Content', logo: 'https://icon.horse/icon/www.jasper.ai' },
-  { name: 'Clay', category: 'Sales Outreach', logo: 'https://icon.horse/icon/www.clay.com' },
-  { name: 'Synthesia', category: 'AI Video', logo: 'https://icon.horse/icon/www.synthesia.io' },
-
-  // Design & Multimedia
-  { name: 'Canva Magic Studio', category: 'Design AI', logo: 'https://icon.horse/icon/www.canva.com' },
-  { name: 'ElevenLabs', category: 'Voice AI', logo: 'https://icon.horse/icon/elevenlabs.io' },
-  { name: 'Adobe Firefly', category: 'Design AI', logo: 'https://icon.horse/icon/firefly.adobe.com' },
-
-  // Operations & Knowledge Management
-  { name: 'Motion', category: 'Project Management', logo: 'https://icon.horse/icon/www.usemotion.com' },
-  { name: 'Glean', category: 'Knowledge Management', logo: 'https://icon.horse/icon/www.glean.com' },
-  { name: 'Perplexity Pages', category: 'AI Research', logo: 'https://icon.horse/icon/www.perplexity.ai' },
-  { name: 'Runway ML', category: 'AI Video Editor', logo: 'https://icon.horse/icon/runwayml.com' },
-  { name: 'Salesforce Agentforce', category: 'CRM AI Agents', logo: 'https://icon.horse/icon/www.salesforce.com' },
-  { name: 'Julius AI', category: 'Data Analysis AI', logo: 'https://icon.horse/icon/julius.ai' },
-
-  { name: '& a lot more!', category: '', isSpecial: true },
-]
+// Split tools into two rows
+const row1 = [...tools.slice(0, 10), ...tools.slice(0, 10)]
+const row2 = [...tools.slice(10), ...tools.slice(10)]
 
 export default function AITools() {
   return (
-    <section className="ai-tools-section">
+    <section className="ai-tools-minimal">
       <div className="container">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <h2 className="section-title">Latest AI Tools (2026)</h2>
-            <p className="section-subtitle mx-auto">
-              Master the exact platforms defining the future of work.
-            </p>
+          <div className="text-center">
+            <span className="section-label" style={{ color: 'var(--accent-gold)' }}>Tools You'll Master</span>
+            <h2 className="section-title" style={{ marginTop: '8px' }}>
+              The AI stack that matters in 2026
+            </h2>
           </div>
         </ScrollReveal>
+      </div>
 
-        <div className="ai-tools-grid">
-          {tools.map((tool, index) => (
-            <ScrollReveal key={index} delay={index * 0.05} distance={20}>
-              <div className={`ai-tool-card ${tool.isSpecial ? 'special-card' : ''}`}>
-                <div className="tool-card-content">
-                  {tool.isSpecial ? (
-                    <>
-                      <div className="tool-logo-wrapper">
-                        <span className="tool-logo-more" aria-hidden>+</span>
-                      </div>
-                      <span className="special-text">{tool.name}</span>
-                    </>
-                  ) : (
-                    <>
-                      <ToolLogo name={tool.name} logo={tool.logo} />
-                      <h3 className="tool-name">{tool.name}</h3>
-                      <p className="tool-category">{tool.category}</p>
-                    </>
-                  )}
-                </div>
-                {!tool.isSpecial && <div className="tool-card-bg-effect"></div>}
-              </div>
-            </ScrollReveal>
+      <div className="ai-tools-marquee-wrap">
+        <div className="ai-tools-marquee-row">
+          {row1.map((tool, i) => (
+            <ToolChip key={`r1-${i}`} name={tool.name} logo={tool.logo} />
+          ))}
+        </div>
+        <div className="ai-tools-marquee-row reverse">
+          {row2.map((tool, i) => (
+            <ToolChip key={`r2-${i}`} name={tool.name} logo={tool.logo} />
           ))}
         </div>
       </div>

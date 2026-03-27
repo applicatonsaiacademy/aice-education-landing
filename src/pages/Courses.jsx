@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
+import HeroMesh from '../components/HeroMesh'
 import { savePreEnroll } from '../lib/forms'
-import { Book, Search, Settings, Bot, BarChart, Rocket, Brain, Award, PartyPopper, Wrench, Megaphone, CircleDollarSign, QrCode, Globe } from 'lucide-react'
+import {
+  Code2, Megaphone, Heart, TrendingUp, Users, PartyPopper, ArrowRight,
+} from 'lucide-react'
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -10,27 +13,39 @@ const pageVariants = {
   exit: { opacity: 0, transition: { duration: 0.3 } },
 }
 
-const courseHighlights = [
-  'Identify high-impact AI opportunities',
-  'Design AI-powered workflows & systems',
-  'Deploy AI agents to automate tasks',
-  'Increase productivity & efficiency',
-  'Make better decisions with AI insights',
-]
+const FEATURED = {
+  title: 'AI for Business Leaders',
+  tag: 'First Course',
+  description:
+    'From AI awareness to competitive advantage. Designed for non-technical leaders who want to harness AI in their organisations — no coding required.',
+  modules: [
+    { num: '01', title: 'AI at Work: Your First Wins' },
+    { num: '02', title: 'Your Personal AI Workbench' },
+    { num: '03', title: 'AI Leadership Playbook' },
+    { num: '04', title: 'AI Across Business Functions' },
+    { num: '05', title: 'Workflows, Automation & Agents' },
+  ],
+  extras: [
+    'Strategy, Brand & Culture',
+    'Risk & Responsible AI',
+    'Capstone: AI Strategy Mini-Memo',
+  ],
+  status: 'coming-soon',
+  lmsUrl: null,
+}
 
-const modules = [
-  { icon: <Book size={24} />, title: 'AI Foundations', desc: 'Core concepts and strategic thinking' },
-  { icon: <Search size={24} />, title: 'AI Opportunity Mapping', desc: 'Find high-impact AI use cases' },
-  { icon: <Settings size={24} />, title: 'AI Workflows', desc: 'Design & deploy AI-powered systems' },
-  { icon: <Bot size={24} />, title: 'AI Agents', desc: 'Build digital employees for your business' },
-  { icon: <BarChart size={24} />, title: 'AI Decision Making', desc: 'Data-driven strategy & insights' },
-  { icon: <Rocket size={24} />, title: 'AI Deployment', desc: 'From concept to real-world implementation' },
+const TRACKS = [
+  { id: 'engineers',   icon: Code2,      title: 'AI for Engineers',    desc: 'Build and deploy AI systems — APIs, fine-tuning, production pipelines.' },
+  { id: 'marketers',  icon: Megaphone,   title: 'AI for Marketers',    desc: 'AI-powered campaigns, content, analytics, and customer intelligence.' },
+  { id: 'healthcare', icon: Heart,       title: 'AI for Healthcare',   desc: 'Clinical, operational, and research applications in healthcare.' },
+  { id: 'finance',    icon: TrendingUp,  title: 'AI for Finance',      desc: 'FP&A, fraud detection, compliance automation, and financial strategy.' },
+  { id: 'hr',         icon: Users,       title: 'AI for HR & People',  desc: 'Recruiting, L&D, workforce analytics, and responsible AI in people decisions.' },
 ]
 
 export default function Courses() {
   const [email, setEmail] = useState('')
   const [enrolled, setEnrolled] = useState(false)
-  const [status, setStatus] = useState('idle') // idle | loading | error
+  const [status, setStatus] = useState('idle')
 
   const handlePreEnroll = async (e) => {
     e.preventDefault()
@@ -50,233 +65,196 @@ export default function Courses() {
 
   return (
     <motion.div className="page-wrapper" variants={pageVariants} initial="initial" animate="animate" exit="exit">
-      {/* ===== HERO ===== */}
-      <section className="hero" style={{ minHeight: '70vh' }}>
-        <motion.div
-          className="hero-content"
-          style={{ gridTemplateColumns: '1fr', textAlign: 'center', justifyItems: 'center' }}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="hero-text" style={{ textAlign: 'center' }}>
-            <div className="hero-badge">✦ AICE Programs</div>
-            <h1 className="hero-title" style={{ fontStyle: 'italic' }}>
-              Our Courses
-            </h1>
-            <p className="hero-subtitle" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-              Practical AI education designed to deliver real-world results.
+
+      {/* ===== DARK HERO ===== */}
+      <div className="dark-section-hero">
+        <HeroMesh />
+        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+          >
+            <div className="dark-section-badge">✦ AICE Programs</div>
+            <h1 className="dark-section-title">Our Courses</h1>
+            <p className="dark-section-subtitle">
+              Practical AI education — built for your role, your industry, your career.
             </p>
-          </div>
-        </motion.div>
-      </section>
+          </motion.div>
+        </div>
+      </div>
 
       {/* ===== FEATURED COURSE ===== */}
-      <section className="section" style={{ background: 'var(--bg-white)' }}>
+      <section className="featured-course-section">
         <div className="container">
           <ScrollReveal>
-            <div className="text-center" style={{ marginBottom: '60px' }}>
-              <span className="section-label">Featured Course</span>
-              <h2 className="section-title">AI for Business Leaders</h2>
-              <p className="section-subtitle mx-auto">
-                Learn how to apply AI for real results. The most powerful technology shift of our generation, made accessible.
-              </p>
+            <motion.div
+              className="featured-course-card"
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Top bar */}
+              <div className="fcc-topbar">
+                <div className="fcc-topbar-left">
+                  <span className="fcc-tag">{FEATURED.tag}</span>
+                  <span className="fcc-status">
+                    <span className="pulse-dot" />
+                    Coming Soon
+                  </span>
+                </div>
+                <span className="fcc-no-code">No coding required</span>
+              </div>
+
+              {/* Body */}
+              <div className="fcc-body">
+                {/* Left — main info */}
+                <div className="fcc-main">
+                  <h2 className="fcc-title">{FEATURED.title}</h2>
+                  <p className="fcc-desc">{FEATURED.description}</p>
+
+                  <div className="fcc-highlights">
+                    <div className="fcc-highlight-item">
+                      <span className="fcc-highlight-num">5</span>
+                      <span className="fcc-highlight-label">Core Modules</span>
+                    </div>
+                    <div className="fcc-highlight-sep" />
+                    <div className="fcc-highlight-item">
+                      <span className="fcc-highlight-num">3</span>
+                      <span className="fcc-highlight-label">Optional Electives</span>
+                    </div>
+                    <div className="fcc-highlight-sep" />
+                    <div className="fcc-highlight-item">
+                      <span className="fcc-highlight-num">1</span>
+                      <span className="fcc-highlight-label">Capstone Project</span>
+                    </div>
+                  </div>
+
+                  <a href="#pre-enroll" className="btn btn-primary fcc-cta">
+                    Pre-Enroll for Early Access →
+                  </a>
+                  <p className="fcc-cta-note">No payment now. Exclusive discount when we launch.</p>
+                </div>
+
+                {/* Right — curriculum */}
+                <div className="fcc-curriculum">
+                  <div className="fcc-curriculum-header">
+                    <span className="fcc-curriculum-label">Course Curriculum</span>
+                  </div>
+                  <div className="fcc-modules">
+                    {FEATURED.modules.map((m) => (
+                      <div key={m.num} className="fcc-module-row">
+                        <span className="fcc-module-num">{m.num}</span>
+                        <span className="fcc-module-title">{m.title}</span>
+                      </div>
+                    ))}
+                    <div className="fcc-modules-divider" />
+                    {FEATURED.extras.map((e) => (
+                      <div key={e} className="fcc-module-row fcc-extra">
+                        <span className="fcc-module-num">+</span>
+                        <span className="fcc-module-title">{e}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ===== MORE TRACKS ===== */}
+      <section className="tracks-section">
+        <div className="container">
+          <ScrollReveal>
+            <div className="tracks-header">
+              <div>
+                <span className="section-label">More Tracks</span>
+                <h2 className="tracks-heading">Every role. Every industry.</h2>
+              </div>
+              <span className="tracks-timeline">Launching throughout 2025–2026</span>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
-            <div className="course-featured">
-              <div className="glass-card course-card">
-                <div className="course-card-inner">
-                  <div className="course-card-visual">
-                    <div className="course-visual-content">
-                      <div className="course-visual-icon"><Brain size={48} /></div>
-                      <div className="course-visual-title">The AICE<br />AI Leadership Program</div>
+          <div className="tracks-list">
+            {TRACKS.map((track, i) => {
+              const Icon = track.icon
+              return (
+                <ScrollReveal key={track.id} delay={i * 0.07}>
+                  <motion.div
+                    className="track-row"
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.18 }}
+                  >
+                    <div className="track-icon-wrap">
+                      <Icon size={20} />
                     </div>
-                  </div>
-                  <div className="course-card-content">
-                    <div className="coming-soon-badge">
-                      <span className="pulse-dot"></span>
-                      Coming Soon
+                    <div className="track-info">
+                      <h4 className="track-title">{track.title}</h4>
+                      <p className="track-desc">{track.desc}</p>
                     </div>
-                    <h3>AI for Business Leaders</h3>
-                    <p>
-                      A comprehensive program that takes you from AI awareness to AI deployment capability.
-                      No coding background required.
-                    </p>
-                    <div className="course-highlights">
-                      {courseHighlights.map((h, i) => (
-                        <div key={i} className="course-highlight">
-                          <span className="check">✓</span>
-                          <span>{h}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <a href="#pre-enroll" className="btn btn-primary" style={{ width: 'fit-content' }}>
-                      Pre-Enroll Now →
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Course Modules */}
-          <div style={{ marginTop: '100px' }}>
-            <ScrollReveal>
-              <div className="text-center">
-                <span className="section-label">Course Structure</span>
-                <h2 className="section-title">What You'll Master</h2>
-                <p className="section-subtitle mx-auto">
-                  Each module builds upon the previous one. You progress only after demonstrating mastery.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <div className="sticky-stack-container" style={{ marginTop: '60px' }}>
-              {modules.map((m, i) => (
-                <div 
-                  key={i} 
-                  className="sticky-stack-card" 
-                  style={{ top: `calc(100px + ${i * 20}px)`, zIndex: i }}
-                >
-                  <div className="sticky-card-icon">{m.icon}</div>
-                  <div className="sticky-card-content">
-                    <div className="sticky-card-number">Module 0{i + 1}</div>
-                    <h3>{m.title}</h3>
-                    <p>{m.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Certification */}
-          <div style={{ marginTop: '100px' }}>
-            <ScrollReveal>
-              <div className="cert-content">
-                <div className="cert-mockup-wrapper">
-                  <div className="cert-mockup-card">
-                    <div className="cert-mockup-watermark">
-                      <Globe size={180} strokeWidth={1} />
-                    </div>
-                    <div className="cert-mockup-header">
-                      <span className="cert-mockup-label">Presented to:</span>
-                      <h4 className="cert-mockup-name">Sarah J. Chen</h4>
-                    </div>
-                    <div className="cert-mockup-body">
-                      <Award size={40} className="cert-mockup-award-icon" />
-                      <h3 className="cert-mockup-title">AICE Certificate</h3>
-                      <p className="cert-mockup-subtitle">Applied Artificial Intelligence<br />for Business & Leadership</p>
-                    </div>
-                    <div className="cert-mockup-footer">
-                      <div className="cert-mockup-qr">
-                        <QrCode size={36} color="#111" />
-                      </div>
-                      <div className="cert-mockup-meta">
-                        <span>Issued on: October 26, 2026</span>
-                        <span>Certificate ID: AICE-261026-SJ</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="cert-mockup-verify">
-                    <p>AICE | Applied Artificial Intelligence for Business & Leadership</p>
-                    <p className="cert-mockup-link">Verify this certificate at: <strong>aice.education/verify/AICE-261026-SJ</strong></p>
-                  </div>
-                </div>
-                <div className="cert-details">
-                  <h3>AICE Certification</h3>
-                  <p>
-                    Participants who successfully complete the program earn the AICE Certificate —
-                    signaling that you understand how to apply AI intelligently and responsibly.
-                  </p>
-                  <div className="cert-list">
-                    <div className="cert-list-item"><span className="check">✓</span> Lifetime access to all course materials</div>
-                    <div className="cert-list-item"><span className="check">✓</span> Recognized industry certification</div>
-                    <div className="cert-list-item"><span className="check">✓</span> Practical, outcome-focused assessment</div>
-                    <div className="cert-list-item"><span className="check">✓</span> Updates as AI technology evolves</div>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
+                    <span className="track-soon">Coming Soon</span>
+                    <ArrowRight size={16} className="track-arrow" />
+                  </motion.div>
+                </ScrollReveal>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* ===== PRE-ENROLL ===== */}
-      <section className="section" id="pre-enroll" style={{ background: 'var(--bg-page)' }}>
+      <section className="pre-enroll-section" id="pre-enroll">
         <div className="container">
           <ScrollReveal>
-            <div className="pre-enroll">
-              <div className="glass-card pre-enroll-card">
-                {!enrolled ? (
-                  <>
-                    <div className="discount-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}><PartyPopper size={16} /> Pre-Enroll & Get 20% Off</div>
-                    <h3>Be the First to Access</h3>
-                    <p>
-                      Join our early access list and lock in your exclusive discount when the AI for Business Leaders program launches.
-                    </p>
+            <div className="pre-enroll-box">
+              {!enrolled ? (
+                <>
+                  <div className="pre-enroll-inner">
+                    <div className="pre-enroll-text">
+                      <span className="pre-enroll-eyebrow">Early Access</span>
+                      <h2 className="pre-enroll-heading">Be the first to know.</h2>
+                      <p className="pre-enroll-sub">
+                        Join the waitlist for AI for Business Leaders and get an exclusive
+                        discount when enrollment opens.
+                      </p>
+                    </div>
                     <form className="pre-enroll-form" onSubmit={handlePreEnroll}>
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
-                      <button type="submit" className="btn btn-primary">
-                        {status === 'loading' ? 'Saving…' : 'Pre-Enroll →'}
-                      </button>
+                      <div className="pre-enroll-row">
+                        <input
+                          type="email"
+                          className="pre-enroll-input"
+                          placeholder="your@email.com"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                        />
+                        <button type="submit" className="btn btn-white">
+                          {status === 'loading' ? 'Saving…' : 'Join Waitlist →'}
+                        </button>
+                      </div>
                       {status === 'error' && (
-                        <p style={{ color: '#d04530', marginTop: '8px' }}>Could not save. Please try again.</p>
+                        <p className="pre-enroll-error">Could not save. Please try again.</p>
                       )}
+                      <p className="pre-enroll-note">No spam. We'll only email when enrollment opens.</p>
                     </form>
-                  </>
-                ) : (
-                  <div className="form-success">
-                    <div className="success-icon">✓</div>
-                    <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>You're on the list! <PartyPopper size={28} /></h3>
-                    <p>We'll notify you when enrollment opens — with your exclusive 20% discount.</p>
                   </div>
-                )}
-              </div>
+                </>
+              ) : (
+                <div className="form-success">
+                  <div className="success-icon">✓</div>
+                  <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                    You're on the list! <PartyPopper size={24} />
+                  </h3>
+                  <p>We'll notify you when enrollment opens — with your exclusive discount.</p>
+                </div>
+              )}
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ===== MORE COURSES ===== */}
-      <section className="section" style={{ background: 'var(--bg-white)' }}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="more-courses">
-              <span className="section-label">Coming Soon</span>
-              <h2 className="section-title">More Courses on the Way</h2>
-              <p className="section-subtitle mx-auto">
-                AICE is building a comprehensive library of practical AI programs.
-              </p>
-
-              <div className="more-courses-grid">
-                <div className="glass-card placeholder-card">
-                  <div className="placeholder-icon"><Wrench size={32} /></div>
-                  <h4>AI for Operations</h4>
-                  <p>Coming soon</p>
-                </div>
-                <div className="glass-card placeholder-card">
-                  <div className="placeholder-icon"><Megaphone size={32} /></div>
-                  <h4>AI for Marketing</h4>
-                  <p>Coming soon</p>
-                </div>
-                <div className="glass-card placeholder-card">
-                  <div className="placeholder-icon"><CircleDollarSign size={32} /></div>
-                  <h4>AI for Finance</h4>
-                  <p>Coming soon</p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
     </motion.div>
   )
 }

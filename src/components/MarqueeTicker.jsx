@@ -1,39 +1,35 @@
 import { Bot, Brain, TrendingUp, Zap, Target, Rocket, Sparkles, BarChart3 } from 'lucide-react'
 
 const tickerItems = [
-  { icon: <Brain size={18} />, label: 'AI Strategy', color: '#E8553A' },
-  { icon: <TrendingUp size={18} />, label: 'Business Growth', color: '#F0A060' },
-  { icon: <Bot size={18} />, label: 'AI Agents', color: '#D94F6E' },
-  { icon: <Zap size={18} />, label: 'Automation', color: '#E8553A' },
-  { icon: <Target size={18} />, label: 'Leadership', color: '#F0A060' },
-  { icon: <Rocket size={18} />, label: 'Innovation', color: '#D94F6E' },
-  { icon: <Sparkles size={18} />, label: 'Generative AI', color: '#E8553A' },
-  { icon: <BarChart3 size={18} />, label: 'Analytics', color: '#F0A060' },
+  { icon: <Brain size={16} />, label: 'AI Strategy' },
+  { icon: <TrendingUp size={16} />, label: 'Business Growth' },
+  { icon: <Bot size={16} />, label: 'AI Agents' },
+  { icon: <Zap size={16} />, label: 'Automation' },
+  { icon: <Target size={16} />, label: 'Leadership' },
+  { icon: <Rocket size={16} />, label: 'Innovation' },
+  { icon: <Sparkles size={16} />, label: 'Generative AI' },
+  { icon: <BarChart3 size={16} />, label: 'Analytics' },
 ]
 
 export default function MarqueeTicker() {
-  // Duplicate items for seamless loop
   const items = [...tickerItems, ...tickerItems, ...tickerItems]
 
   return (
     <div className="marquee-ticker-section">
-      {/* Row 1 — scrolls left */}
       <div className="marquee-ticker-row">
         <div className="marquee-ticker-track">
           {items.map((item, i) => (
-            <div key={`r1-${i}`} className="marquee-ticker-item" style={{ background: item.color }}>
+            <div key={`r1-${i}`} className="marquee-ticker-item">
               {item.icon}
               <span>{item.label}</span>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Row 2 — scrolls right */}
       <div className="marquee-ticker-row reverse">
         <div className="marquee-ticker-track reverse">
           {items.map((item, i) => (
-            <div key={`r2-${i}`} className="marquee-ticker-item" style={{ background: item.color }}>
+            <div key={`r2-${i}`} className="marquee-ticker-item">
               {item.icon}
               <span>{item.label}</span>
             </div>
