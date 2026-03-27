@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
+import HeroMesh from '../components/HeroMesh'
 import { saveContact } from '../lib/forms'
 import { Mail, Linkedin, Globe, CheckCircle } from 'lucide-react'
 
@@ -39,21 +40,27 @@ export default function Contact() {
 
   return (
     <motion.div className="page-wrapper" variants={pageVariants} initial="initial" animate="animate" exit="exit">
-      <section className="contact-section section">
-        <div className="container">
+
+      {/* Dark hero strip */}
+      <div className="dark-section-hero">
+        <HeroMesh />
+        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <span className="section-label">Get In Touch</span>
-            <h1 className="section-title">Contact Us</h1>
-            <p className="section-subtitle mx-auto">
+            <div className="dark-section-badge">✦ Get In Touch</div>
+            <h1 className="dark-section-title">Contact Us</h1>
+            <p className="dark-section-subtitle">
               Have questions about AICE programs? We'd love to hear from you.
             </p>
           </motion.div>
+        </div>
+      </div>
 
+      <section className="contact-section section">
+        <div className="container">
           <div className="contact-grid">
             <ScrollReveal direction="left">
               <div className="contact-info">
@@ -159,6 +166,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
     </motion.div>
   )
 }

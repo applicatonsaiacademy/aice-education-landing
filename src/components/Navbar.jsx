@@ -21,7 +21,10 @@ export default function Navbar() {
         <div className="container">
           <Link to="/" className="nav-logo">
             <img src="/logo.png" alt="AICE Logo" className="nav-logo-img" />
-            <span>AICE<span className="dot">.</span>Education</span>
+            <div className="nav-logo-text">
+              <span className="nav-logo-main">AICE</span>
+              <span className="nav-logo-sub">AI Centre of Excellence</span>
+            </div>
           </Link>
 
           <div
