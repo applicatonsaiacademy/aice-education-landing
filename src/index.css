@@ -116,6 +116,7 @@ h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.15;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
 }
 
@@ -157,9 +158,9 @@ button {
 
 .section-label {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--primary);
   margin-bottom: 16px;
@@ -168,9 +169,11 @@ button {
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.1;
   margin-bottom: 20px;
   color: var(--text-primary);
   font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
 .section-title-massive {
@@ -179,14 +182,15 @@ button {
   line-height: 1.05;
   color: var(--text-primary);
   font-weight: 400;
-  letter-spacing: -1px;
+  letter-spacing: -0.03em;
 }
 
 .section-subtitle {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   color: var(--text-secondary);
   max-width: 600px;
-  line-height: 1.7;
+  line-height: 1.75;
+  font-weight: 400;
 }
 
 .text-center {
@@ -666,10 +670,9 @@ button {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 6.5rem);
   font-weight: 400;
-  font-style: italic;
   line-height: 1.0;
   margin-bottom: 28px;
-  letter-spacing: -2px;
+  letter-spacing: -0.03em;
   color: var(--text-on-dark);
 }
 
@@ -1213,9 +1216,9 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4vw, 3.4rem);
   font-weight: 400;
-  line-height: 1.12;
+  line-height: 1.1;
   color: var(--text-primary);
-  letter-spacing: -0.5px;
+  letter-spacing: -0.025em;
   margin-bottom: 24px;
 }
 
@@ -2325,10 +2328,9 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 5.5vw, 5rem);
   font-weight: 400;
-  font-style: italic;
   color: var(--text-on-dark);
-  letter-spacing: -2px;
-  line-height: 1.0;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   margin: 40px 0 48px;
 }
 
@@ -2527,10 +2529,10 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 2.6rem);
   font-weight: 400;
-  font-style: italic;
   color: var(--text-on-dark);
   margin-bottom: 12px;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .pre-enroll-sub {
@@ -2672,10 +2674,9 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.5vw, 3.5rem);
   font-weight: 400;
-  font-style: italic;
   color: var(--text-on-dark);
   margin-bottom: 16px;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
