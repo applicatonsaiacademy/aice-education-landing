@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Courses from './pages/Courses'
+import CoursesPricing from './pages/CoursesPricing'
 import Newsletter from './pages/Newsletter'
 import Contact from './pages/Contact'
 import Founders from './pages/Founders'
@@ -22,6 +23,7 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
+            <Route path="/courses/businessleader/pricing" element={<CoursesPricing />} />
             <Route path="/newsletter" element={<Newsletter />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/founders" element={<Founders />} />
