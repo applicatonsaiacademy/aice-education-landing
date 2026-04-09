@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import ScrollReveal from '../components/ScrollReveal'
-import HeroMesh from '../components/HeroMesh'
 import { savePreEnroll } from '../lib/forms'
-import { PartyPopper, CheckCircle2, Users, BadgeCheck } from 'lucide-react'
+import { PartyPopper, CheckCircle2, Mic2, FileText } from 'lucide-react'
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -88,16 +86,6 @@ const MODULES = [
   },
 ]
 
-const OUTCOMES = [
-  'Explain the AI landscape with authority to any board, investor or team',
-  'Build a board-ready business case for AI investment',
-  'Identify your highest-value AI opportunities using a proven framework',
-  'Manage a blended team of humans and AI agents',
-  'Write prompts that deliver real business results — not generic outputs',
-  'Navigate AI risk and India\'s DPDP Act without legal paranoia',
-  'Lead your organisation through the AI transition with a clear plan',
-]
-
 export default function Courses() {
   const [email, setEmail] = useState('')
   const [enrolled, setEnrolled] = useState(false)
@@ -125,7 +113,6 @@ export default function Courses() {
 
       {/* ===== DARK HERO ===== */}
       <div className="dark-section-hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
-        <HeroMesh />
         <div style={{ position: 'relative', zIndex: 1, width: '100%' }}>
           <div className="container">
             <div className="course-hero-grid">
@@ -137,13 +124,6 @@ export default function Courses() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-                  <span className="course-hero-pill">✦ First Course</span>
-                  <span className="course-hero-pill course-hero-pill--live">
-                    <span className="pulse-dot" style={{ background: '#4ADE80' }} /> Launching 2026
-                  </span>
-                </div>
-
                 <h1 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(2.6rem, 5.5vw, 4.4rem)',
@@ -154,98 +134,44 @@ export default function Courses() {
                   marginBottom: 24,
                 }}>
                   AI for<br />
-                  <span style={{ color: 'var(--accent-gold-light)' }}>Business Leaders</span>
+                  <span style={{ color: 'rgba(255,255,255,0.7)', fontStyle: 'italic' }}>Business Leaders</span>
                 </h1>
 
                 <p style={{
                   fontSize: '1.05rem',
-                  color: 'rgba(255,255,255,0.55)',
+                  color: 'rgba(255,255,255,0.45)',
                   lineHeight: 1.75,
                   maxWidth: 460,
-                  marginBottom: 36,
+                  marginBottom: 40,
                 }}>
                   The 3-hour masterclass that turns AI curiosity into competitive advantage.
                   Built for leaders who need to act — not just understand.
                 </p>
 
-                {/* Proof points */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 40 }}>
-                  {[
-                    'No coding. No jargon. No fluff.',
-                    'Every module ends with a deliverable you use that week.',
-                    'AI Roleplay Exams — prove you can lead the conversation, not just pass a test.',
-                  ].map((pt) => (
-                    <div key={pt} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-                      <CheckCircle2 size={16} style={{ color: '#4ADE80', flexShrink: 0, marginTop: 3 }} />
-                      <span style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)' }}>{pt}</span>
-                    </div>
-                  ))}
-                </div>
-
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                  <a href="#pre-enroll" className="btn btn-primary" style={{ background: '#fff', color: '#0A0A14', fontWeight: 700 }}>
+                  <a href="#pre-enroll" className="btn btn-primary">
                     Pre-Enroll — Free →
                   </a>
-                  <Link to="/courses/businessleader/pricing" className="btn btn-white">
-                    Pricing &amp; Referral Program
-                  </Link>
                 </div>
 
-                <p style={{ marginTop: 16, fontSize: '0.75rem', color: 'rgba(255,255,255,0.2)' }}>
+                <p style={{ marginTop: 16, fontSize: '0.75rem', color: 'rgba(255,255,255,0.18)' }}>
                   No payment now · Exclusive early-access discount at launch
                 </p>
               </motion.div>
 
-              {/* Right — course preview card */}
+              {/* Right — hero image */}
               <motion.div
                 className="course-hero-right"
                 initial={{ opacity: 0, x: 32, rotateY: -6 }}
                 animate={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <div className="course-preview-card">
-                  <div className="cpc-header">
-                    <span className="cpc-label">Course Overview</span>
-                    <span className="cpc-no-code">No coding required</span>
-                  </div>
-                  <div className="cpc-stat-row">
-                    {[
-                      { v: '5', l: 'Modules' },
-                      { v: '22', l: 'Lessons' },
-                      { v: '~3h', l: 'Duration' },
-                    ].map((s) => (
-                      <div key={s.l} className="cpc-stat">
-                        <span className="cpc-stat-val">{s.v}</span>
-                        <span className="cpc-stat-lbl">{s.l}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="cpc-modules">
-                    {[
-                      { n: '01', t: 'The AI Moment' },
-                      { n: '02', t: 'AI Strategy' },
-                      { n: '03', t: 'Agentic AI' },
-                      { n: '04', t: 'AI Tools' },
-                      { n: '05', t: 'Risk & Governance' },
-                    ].map((m) => (
-                      <div key={m.n} className="cpc-module-row">
-                        <span className="cpc-module-n">{m.n}</span>
-                        <span className="cpc-module-t">{m.t}</span>
-                        <div className="cpc-module-bar" />
-                      </div>
-                    ))}
-                  </div>
-                  <div className="cpc-differentiator">
-                    <div className="cpc-diff-icon">✦</div>
-                    <div>
-                      <div className="cpc-diff-title">AI Roleplay Exams</div>
-                      <div className="cpc-diff-desc">Converse with an AI agent playing your CEO, CFO or board. Prove comprehension — not memorisation.</div>
-                    </div>
-                  </div>
-                  <div className="cpc-price-row">
-                    <span className="cpc-price">₹5,999</span>
-                    <span className="cpc-price-note">launch price · limited seats</span>
-                  </div>
+                <div className="course-hero-image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=85"
+                    alt="Business professional working with AI tools"
+                    className="course-hero-image"
+                  />
                 </div>
               </motion.div>
 
@@ -268,36 +194,71 @@ export default function Courses() {
         </div>
       </section>
 
-      {/* ===== OUTCOMES ===== */}
-      <section className="section" style={{ background: '#fff', paddingTop: 80, paddingBottom: 80 }}>
+      {/* ===== ENGAGEMENT STRIP ===== */}
+      <section style={{ background: 'var(--bg-page)', borderBottom: '1px solid var(--border)', padding: '52px 0' }}>
         <div className="container">
           <ScrollReveal>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }}>
-              <div>
-                <span className="section-label">Learning Outcomes</span>
-                <h2 className="section-title" style={{ marginBottom: 12 }}>
-                  What you will be able to do
-                </h2>
-                <p className="section-subtitle">
-                  This is not a course about AI awareness. Every module ends with a deliverable you
-                  can use at work the same day.
-                </p>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                {OUTCOMES.map((o, i) => (
-                  <motion.div
-                    key={i}
-                    className="outcome-row"
-                    initial={{ opacity: 0, x: 16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.06 }}
-                  >
-                    <CheckCircle2 size={18} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: 2 }} />
-                    <span>{o}</span>
-                  </motion.div>
-                ))}
-              </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: 'var(--border)' }}>
+              {[
+                {
+                  icon: <Mic2 size={22} style={{ color: 'var(--primary)' }} />,
+                  title: 'AI Roleplay Exam',
+                  desc: 'Every module. An AI agent plays your CEO, CFO, or board — and evaluates your response.',
+                  accent: true,
+                },
+                {
+                  icon: <CheckCircle2 size={22} style={{ color: 'var(--primary)' }} />,
+                  title: 'Knowledge Quiz',
+                  desc: 'Auto-graded after each lesson. Instant feedback, no waiting.',
+                },
+                {
+                  icon: <FileText size={22} style={{ color: 'var(--primary)' }} />,
+                  title: 'Downloadable PDF',
+                  desc: 'Frameworks and templates with every module. Keep them forever.',
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  style={{
+                    background: 'var(--bg-page)',
+                    padding: '36px 32px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 12,
+                  }}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                >
+                  {item.icon}
+                  <h4 style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontWeight: 700,
+                    fontSize: '1rem',
+                    color: 'var(--text-primary)',
+                    marginBottom: 0,
+                  }}>
+                    {item.title}
+                    {item.accent && (
+                      <span style={{
+                        marginLeft: 8,
+                        fontSize: '0.65rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        color: 'var(--primary)',
+                        background: 'rgba(184,144,42,0.1)',
+                        padding: '2px 7px',
+                        borderRadius: 4,
+                      }}>Main Feature</span>
+                    )}
+                  </h4>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.65, margin: 0 }}>
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </ScrollReveal>
         </div>
@@ -307,13 +268,23 @@ export default function Courses() {
       <section className="section" style={{ background: 'var(--bg-surface)', paddingTop: 80, paddingBottom: 80 }}>
         <div className="container">
           <ScrollReveal>
-            <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div style={{ textAlign: 'center', marginBottom: 32 }}>
               <span className="section-label">The Curriculum</span>
               <h2 className="section-title">5 modules. 22 lessons. Zero jargon.</h2>
-              <p className="section-subtitle" style={{ margin: '0 auto' }}>
-                Each module ends with a knowledge quiz and an AI Roleplay Exam — a live conversation
-                with an AI agent that tests real comprehension, not memorisation.
-              </p>
+            </div>
+            <div className="curriculum-includes" style={{ maxWidth: 860, margin: '0 auto 40px' }}>
+              <div className="curriculum-includes-item">
+                <span className="curriculum-includes-dot" />
+                Knowledge quiz after every lesson
+              </div>
+              <div className="curriculum-includes-item">
+                <span className="curriculum-includes-dot" />
+                Downloadable PDF framework per module
+              </div>
+              <div className="curriculum-includes-item">
+                <span className="curriculum-includes-dot" />
+                One AI roleplay exam at end of each module
+              </div>
             </div>
           </ScrollReveal>
 
@@ -346,8 +317,8 @@ export default function Courses() {
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <p className="module-outcome">
-                        <strong>Outcome:</strong> {mod.outcome}
+                      <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: 16 }}>
+                        {mod.outcome}
                       </p>
                       <div className="module-highlights">
                         {mod.highlights.map((h, j) => (
@@ -356,11 +327,6 @@ export default function Courses() {
                             {h}
                           </div>
                         ))}
-                      </div>
-                      <div className="module-card-badges">
-                        <span className="module-badge">Knowledge Quiz</span>
-                        <span className="module-badge module-badge--accent">AI Roleplay Exam</span>
-                        <span className="module-badge">Downloadable PDF</span>
                       </div>
                     </motion.div>
                   )}
@@ -371,103 +337,106 @@ export default function Courses() {
         </div>
       </section>
 
-      {/* ===== WHO IS THIS FOR ===== */}
-      <section className="section" style={{ background: '#fff', paddingTop: 80, paddingBottom: 80 }}>
-        <div className="container">
-          <ScrollReveal>
-            <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <span className="section-label">Who This Is For</span>
-              <h2 className="section-title">Built for leaders, not technologists</h2>
-            </div>
-          </ScrollReveal>
-          <div className="persona-grid">
-            {[
-              { role: 'Founders & CEOs', desc: 'Who need to lead AI strategy without depending on their tech team for every decision.' },
-              { role: 'Functional Heads', desc: 'Sales, Marketing, HR, Finance, Operations — building AI into your team\'s workflow.' },
-              { role: 'Senior Managers', desc: 'Moving from dabbling with ChatGPT personally to driving real org-wide transformation.' },
-              { role: 'Consultants & Advisors', desc: 'Who advise businesses on strategy and need a credible AI leadership framework.' },
-            ].map((p, i) => (
-              <ScrollReveal key={p.role} delay={i * 0.08}>
-                <div className="glass-card persona-card">
-                  <div className="persona-card-icon">
-                    <Users size={22} style={{ color: 'var(--primary)' }} />
-                  </div>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, marginBottom: 8 }}>{p.role}</h4>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>{p.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ===== AI ROLEPLAY DIFFERENTIATOR ===== */}
-      <section style={{ background: 'var(--bg-dark)', padding: '80px 0' }}>
+      <section style={{ background: 'var(--bg-dark)', padding: '96px 0' }}>
         <div className="container">
           <ScrollReveal>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center' }}>
               <div>
-                <span className="section-label" style={{ color: 'var(--accent-gold)' }}>The Differentiator</span>
-                <h2 className="section-title" style={{ color: 'var(--text-on-dark)', marginBottom: 20 }}>
-                  You don't pass a test. You pass a conversation.
+                <span className="section-label" style={{ color: 'rgba(255,255,255,0.4)', letterSpacing: '0.16em' }}>The Differentiator</span>
+                <h2 style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(2rem, 3.5vw, 2.8rem)',
+                  fontWeight: 400,
+                  color: '#fff',
+                  lineHeight: 1.15,
+                  letterSpacing: '-0.025em',
+                  marginBottom: 20,
+                  marginTop: 12,
+                }}>
+                  You don't pass a test.<br />You pass a conversation.
                 </h2>
-                <p style={{ color: 'var(--text-on-dark-muted)', lineHeight: 1.75, marginBottom: 24 }}>
-                  After each module, an AI agent plays your CEO, CFO, or a skeptical board member and
-                  asks you to explain what you just learned — in your own words. It evaluates clarity,
-                  accuracy, and confidence. Not memorisation.
+                <p style={{ color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, fontSize: '1rem', marginBottom: 32 }}>
+                  After each module, an AI agent plays your CEO, CFO, or a board member. It evaluates
+                  clarity, accuracy, and confidence — not memorisation. Learners leave able to have
+                  these conversations at work, because they already have.
                 </p>
-                <p style={{ color: 'var(--text-on-dark-muted)', lineHeight: 1.75 }}>
-                  This is the most powerful differentiator of this course. Learners leave able to have
-                  these conversations at work — because they already have.
-                </p>
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '10px 18px',
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  borderRadius: 'var(--radius-full)',
+                  fontSize: '0.8rem',
+                  color: 'rgba(255,255,255,0.5)',
+                }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ADE80', flexShrink: 0, boxShadow: '0 0 8px rgba(74,222,128,0.6)' }} />
+                  5 AI roleplay scenarios · No memorisation
+                </div>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {[
-                  { scenario: 'Module 1', role: 'Board pitch', desc: 'Explain the AI landscape and why the company must act now' },
-                  { scenario: 'Module 2', role: 'CFO pitch', desc: 'Present a business case with ROI to a skeptical finance head' },
-                  { scenario: 'Module 3', role: 'COO dialogue', desc: 'Address a nervous operations manager\'s concerns about agents' },
-                  { scenario: 'Module 4', role: 'EA briefing', desc: 'Explain your AI workflow to a skeptical executive assistant' },
-                  { scenario: 'Module 5', role: 'Risk committee', desc: 'Convince the board\'s risk chair your AI plans are responsible' },
+                  { num: '01', scenario: 'Module 1', role: 'Board pitch', desc: 'Explain the AI landscape and why the company must act now' },
+                  { num: '02', scenario: 'Module 2', role: 'CFO pitch', desc: 'Present a business case with ROI to a skeptical finance head' },
+                  { num: '03', scenario: 'Module 3', role: 'COO dialogue', desc: 'Address a nervous operations manager\'s concerns about agents' },
+                  { num: '04', scenario: 'Module 4', role: 'EA briefing', desc: 'Explain your AI workflow to a skeptical executive assistant' },
+                  { num: '05', scenario: 'Module 5', role: 'Risk committee', desc: 'Convince the board\'s risk chair your AI plans are responsible' },
                 ].map((r, i) => (
                   <motion.div
                     key={r.scenario}
-                    className="roleplay-row"
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.07 }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: 16,
+                      padding: '16px 20px',
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(255,255,255,0.07)',
+                      borderRadius: 'var(--radius-md)',
+                      transition: 'background 0.2s, border-color 0.2s',
+                    }}
+                    whileHover={{ background: 'rgba(255,255,255,0.055)', borderColor: 'rgba(255,255,255,0.12)' }}
                   >
-                    <div>
-                      <span className="roleplay-scenario">{r.scenario}</span>
-                      <span className="roleplay-role">{r.role}</span>
+                    <span style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '1.2rem',
+                      fontWeight: 400,
+                      color: 'rgba(255,255,255,0.15)',
+                      lineHeight: 1,
+                      minWidth: 28,
+                      paddingTop: 2,
+                    }}>{r.num}</span>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                        <span style={{
+                          fontSize: '0.7rem',
+                          fontWeight: 600,
+                          letterSpacing: '0.1em',
+                          textTransform: 'uppercase',
+                          color: 'rgba(255,255,255,0.35)',
+                        }}>{r.scenario}</span>
+                        <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(255,255,255,0.2)' }} />
+                        <span style={{
+                          fontSize: '0.8rem',
+                          fontWeight: 600,
+                          color: 'rgba(255,255,255,0.75)',
+                        }}>{r.role}</span>
+                      </div>
+                      <p style={{
+                        fontSize: '0.83rem',
+                        color: 'rgba(255,255,255,0.38)',
+                        lineHeight: 1.55,
+                        margin: 0,
+                      }}>{r.desc}</p>
                     </div>
-                    <p className="roleplay-desc">{r.desc}</p>
                   </motion.div>
                 ))}
               </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ===== PARTNER CTA ===== */}
-      <section style={{ background: 'var(--bg-surface)', padding: '64px 0' }}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="partner-cta-strip">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-                  <BadgeCheck size={20} style={{ color: 'var(--primary)' }} />
-                  <span style={{ fontWeight: 700, fontSize: '1rem' }}>Resell &amp; Refer Program</span>
-                </div>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', maxWidth: 480 }}>
-                  L&amp;D consultants, HR heads, executive coaches and corporate trainers can earn a referral fee
-                  for every enrollment they bring in. See the full earning model.
-                </p>
-              </div>
-              <Link to="/courses/businessleader/pricing" className="btn btn-primary" style={{ whiteSpace: 'nowrap' }}>
-                See Partner Pricing →
-              </Link>
             </div>
           </ScrollReveal>
         </div>

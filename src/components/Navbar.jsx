@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { Moon, Sun } from 'lucide-react'
+import { useTheme } from '../context/ThemeContext'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const { dark, toggle } = useTheme()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -48,6 +51,9 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="nav-cta-top">
+            <button className="theme-toggle-btn" onClick={toggle} aria-label="Toggle dark mode">
+              {dark ? <Sun size={17} /> : <Moon size={17} />}
+            </button>
             <Link to="/courses" className="btn btn-primary">Get Started</Link>
           </div>
         </div>
