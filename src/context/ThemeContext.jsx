@@ -9,8 +9,7 @@ export function useTheme() {
 export function ThemeProvider({ children }) {
   const [dark, setDark] = useState(() => {
     const saved = localStorage.getItem('aice-theme')
-    if (saved) return saved === 'dark'
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
+    return saved === 'dark'   // defaults to light unless user previously chose dark
   })
 
   useEffect(() => {
